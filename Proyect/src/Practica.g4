@@ -3,5 +3,15 @@ grammar Practica;
 @members{
 }
 
-r : (SALTO)+;
-SALTO: . {System.out.println(getText());};
+r : (IDENTIFIER | CONST_DEF_IDENTIFIER | NUMERIC_INTEGER_CONST | NUMERIC_REAL_CONST | MIXED_REAL)+;
+CONST_DEF_IDENTIFIER: '_'* [A-Z] [A-Z0-9_]* {System.out.println("<CONST_DEF_IDENTIFIER, " + getText() + ">");};
+IDENTIFIER: '_'* [a-zA-Z] [a-zA-Z0-9_]* {System.out.println("<IDENTIFIER, " + getText() + ">");};
+NUMERIC_INTEGER_CONST: [+-]? DIGIT+ {System.out.println("<NUMERIC_INTEGER_CONST, " + getText() + ">");};
+NUMERIC_REAL_CONST: [+-]? (FIXED_POINT | INITIAL_POINT | EXPONENTIAL | MIXED_REAL) {System.out.println("<NUMERIC_REAL_CONST, " + getText() + ">");};
+MIXED_REAL: (FIXED_POINT | INITIAL_POINT) [eE] [+-]? DIGIT+;
+FIXED_POINT: DIGIT+ '.' DIGIT+;
+INITIAL_POINT: '.' DIGIT+;
+EXPONENTIAL: DIGIT+ [eE] [+-]? DIGIT+;
+
+fragment
+DIGIT: [0-9];

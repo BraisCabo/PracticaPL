@@ -16,7 +16,8 @@ public class PracticaParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		SALTO=1;
+		CONST_DEF_IDENTIFIER=1, IDENTIFIER=2, NUMERIC_INTEGER_CONST=3, NUMERIC_REAL_CONST=4, 
+		MIXED_REAL=5, FIXED_POINT=6, INITIAL_POINT=7, EXPONENTIAL=8;
 	public static final int
 		RULE_r = 0;
 	private static String[] makeRuleNames() {
@@ -33,7 +34,8 @@ public class PracticaParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "SALTO"
+			null, "CONST_DEF_IDENTIFIER", "IDENTIFIER", "NUMERIC_INTEGER_CONST", 
+			"NUMERIC_REAL_CONST", "MIXED_REAL", "FIXED_POINT", "INITIAL_POINT", "EXPONENTIAL"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -91,9 +93,25 @@ public class PracticaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class RContext extends ParserRuleContext {
-		public List<TerminalNode> SALTO() { return getTokens(PracticaParser.SALTO); }
-		public TerminalNode SALTO(int i) {
-			return getToken(PracticaParser.SALTO, i);
+		public List<TerminalNode> IDENTIFIER() { return getTokens(PracticaParser.IDENTIFIER); }
+		public TerminalNode IDENTIFIER(int i) {
+			return getToken(PracticaParser.IDENTIFIER, i);
+		}
+		public List<TerminalNode> CONST_DEF_IDENTIFIER() { return getTokens(PracticaParser.CONST_DEF_IDENTIFIER); }
+		public TerminalNode CONST_DEF_IDENTIFIER(int i) {
+			return getToken(PracticaParser.CONST_DEF_IDENTIFIER, i);
+		}
+		public List<TerminalNode> NUMERIC_INTEGER_CONST() { return getTokens(PracticaParser.NUMERIC_INTEGER_CONST); }
+		public TerminalNode NUMERIC_INTEGER_CONST(int i) {
+			return getToken(PracticaParser.NUMERIC_INTEGER_CONST, i);
+		}
+		public List<TerminalNode> NUMERIC_REAL_CONST() { return getTokens(PracticaParser.NUMERIC_REAL_CONST); }
+		public TerminalNode NUMERIC_REAL_CONST(int i) {
+			return getToken(PracticaParser.NUMERIC_REAL_CONST, i);
+		}
+		public List<TerminalNode> MIXED_REAL() { return getTokens(PracticaParser.MIXED_REAL); }
+		public TerminalNode MIXED_REAL(int i) {
+			return getToken(PracticaParser.MIXED_REAL, i);
 		}
 		public RContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -128,13 +146,21 @@ public class PracticaParser extends Parser {
 				{
 				{
 				setState(2);
-				match(SALTO);
+				_la = _input.LA(1);
+				if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 62L) != 0) ) {
+				_errHandler.recoverInline(this);
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 				}
 				}
 				setState(5); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( _la==SALTO );
+			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & 62L) != 0 );
 			}
 		}
 		catch (RecognitionException re) {
@@ -149,12 +175,13 @@ public class PracticaParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0001\b\u0002\u0000\u0007\u0000\u0001\u0000\u0004\u0000\u0004"+
+		"\u0004\u0001\b\b\u0002\u0000\u0007\u0000\u0001\u0000\u0004\u0000\u0004"+
 		"\b\u0000\u000b\u0000\f\u0000\u0005\u0001\u0000\u0000\u0000\u0001\u0000"+
-		"\u0000\u0000\u0007\u0000\u0003\u0001\u0000\u0000\u0000\u0002\u0004\u0005"+
-		"\u0001\u0000\u0000\u0003\u0002\u0001\u0000\u0000\u0000\u0004\u0005\u0001"+
-		"\u0000\u0000\u0000\u0005\u0003\u0001\u0000\u0000\u0000\u0005\u0006\u0001"+
-		"\u0000\u0000\u0000\u0006\u0001\u0001\u0000\u0000\u0000\u0001\u0005";
+		"\u0000\u0001\u0001\u0000\u0001\u0005\u0007\u0000\u0003\u0001\u0000\u0000"+
+		"\u0000\u0002\u0004\u0007\u0000\u0000\u0000\u0003\u0002\u0001\u0000\u0000"+
+		"\u0000\u0004\u0005\u0001\u0000\u0000\u0000\u0005\u0003\u0001\u0000\u0000"+
+		"\u0000\u0005\u0006\u0001\u0000\u0000\u0000\u0006\u0001\u0001\u0000\u0000"+
+		"\u0000\u0001\u0005";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
