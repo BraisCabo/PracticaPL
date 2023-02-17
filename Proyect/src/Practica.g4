@@ -17,7 +17,7 @@ DOUBLE: '"'  (~["] | '\\"')*  '"';
 SIMPLE: '\'' (~['] | '\\\'')* '\'';
 COMMENT: (ONE_LINE | MULTIPLE_LINE);
 ONE_LINE: '//' ~[\r\n]*;
-MULTIPLE_LINE: '/*'  ((~[*]) | ('*'+ ~[/*]))*  [*]+  '/';
+MULTIPLE_LINE: '/*'  (~[*] | '*'+ ~[/*])*  [*]+  '/';
 
 fragment
 DIGIT: [0-9];
