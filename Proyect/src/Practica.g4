@@ -1,8 +1,5 @@
 grammar Practica;
 
-@members{
-}
-
 program: dcllist funlist sentlist;//
 dcllist: | dcl dcllist;
 funlist: | funcdef funlist;
@@ -58,7 +55,7 @@ DOUBLE: '"'  (~["] | '\\"')*  '"';
 SIMPLE: '\'' (~['] | '\\\'')* '\'';
 COMMENT: (ONE_LINE | MULTIPLE_LINE) -> skip;
 ONE_LINE: '//' ~[\r\n]*;
-IGNORE: [ \r\t\n]? ->skip;
+IGNORE: [ \r\t\n] ->skip;
 MULTIPLE_LINE: '/*'  (~[*] | '*'+ ~[/*])*  [*]+  '/';
 fragment
 DIGIT: [0-9];

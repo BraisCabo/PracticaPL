@@ -12,7 +12,7 @@ public class ClasePrincipal {
             CharStream input = CharStreams.fromFileName(args[0]);
 // Crear el objeto correspondiente al analizador léxico con el fichero de
 // entrada
-            PracticaLexer analex = new PracticaLexer(input);
+            MiLexer analex = new MiLexer(input);
 // Identificar al analizador léxico como fuente de tokens para el
 // sintactico
             CommonTokenStream tokens = new CommonTokenStream(analex);
@@ -29,7 +29,11 @@ Comenzar el análisis llamando al axioma de la gramática
 Atención, sustituye "AxiomaDeLaGramatica" por el nombre del axioma de tu
 gramática
 */
-            anasint.r();
+            MiErrorSintaxis errorStrategy = new MiErrorSintaxis();
+            anasint.removeErrorListeners();
+            anasint.addErrorListener(new MiSintaxisListener());
+            anasint.setErrorHandler(errorStrategy);
+            anasint.program();
         } catch (org.antlr.v4.runtime.RecognitionException e) {
 //Fallo al reconocer la entrada
             System.err.println("REC " + e.getMessage());
