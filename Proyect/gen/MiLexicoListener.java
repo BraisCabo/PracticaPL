@@ -11,7 +11,7 @@ public class MiLexicoListener extends BaseErrorListener {
             int start = lexEx.getStartIndex();
             int end = input.index();
             String text = input.getText(new Interval(start, end));
-            System.err.println("Error léxico en la línea " + line + ":" + charPositionInLine + ". Carácter '" + text + "' no reconocido.");
+            System.err.println("Error léxico en la línea " + line + ", columna: " + charPositionInLine + ". Carácter '" + text + "' no reconocido.");
         } else {
             System.err.println(e.getClass());
         }
