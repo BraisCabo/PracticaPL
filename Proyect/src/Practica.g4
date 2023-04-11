@@ -23,7 +23,7 @@ typedef2_tail : ',' tbas IDENTIFIER typedef2_tail | ;
 
 mainhead: tvoid 'Main' '(' typedef1 ')';
 code: | sent code;
-sent: asig ';' | funccall ';' | vardef ';' | if | while;
+sent: asig ';' | funccall ';' | vardef ';' | if | while | for | dowhile;
 asig: IDENTIFIER '=' exp;//
 exp: factor exp1;
 exp1: op factor exp1 | ;
@@ -36,6 +36,10 @@ explist : exp | exp ',' explist;
 if  : 'if' expcond '{' code '}' else;
 else: 'else' '{' code '}' | 'else' 'if' expcond '{' code '}' else | ;
 while : 'while' '(' expcond ')' '{' code '}';
+dowhile : 'do' '{' code '}' 'while' '(' expcond ')' ';';
+for : 'for' '(' vardef ';' expcond ';' asig ')' '{' code '}'
+    | 'for' '(' asig ';' expcond ';' asig ')' '{' code '}';
+
 expcond : factorcond expcond_tail;
 expcond_tail : oplog factorcond expcond_tail| ;
 oplog : '||' | '&';

@@ -11,7 +11,7 @@ string codificar_cadena(string cadena, integer desplazamiento){
 }
 
 void save(string nombre){
-    fopen("file.txt", "w");
+    fopen("file.txt", "w")
     printf(nombre);
 }
 
