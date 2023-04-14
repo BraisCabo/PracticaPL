@@ -46,6 +46,12 @@ public interface PracticaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCtelist(PracticaParser.CtelistContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PracticaParser#ctelist1}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCtelist1(PracticaParser.Ctelist1Context ctx);
+	/**
 	 * Visit a parse tree produced by {@link PracticaParser#simpvalue}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -57,6 +63,12 @@ public interface PracticaVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitVarlist(PracticaParser.VarlistContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PracticaParser#varlis1}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVarlis1(PracticaParser.Varlis1Context ctx);
 	/**
 	 * Visit a parse tree produced by {@link PracticaParser#vardef}.
 	 * @param ctx the parse tree
@@ -178,6 +190,12 @@ public interface PracticaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExplist(PracticaParser.ExplistContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PracticaParser#explist1}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExplist1(PracticaParser.Explist1Context ctx);
+	/**
 	 * Visit a parse tree produced by {@link PracticaParser#if}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -190,11 +208,35 @@ public interface PracticaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitElse(PracticaParser.ElseContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PracticaParser#else1}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElse1(PracticaParser.Else1Context ctx);
+	/**
 	 * Visit a parse tree produced by {@link PracticaParser#while}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitWhile(PracticaParser.WhileContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PracticaParser#dowhile}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDowhile(PracticaParser.DowhileContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PracticaParser#for}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFor(PracticaParser.ForContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PracticaParser#for1}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFor1(PracticaParser.For1Context ctx);
 	/**
 	 * Visit a parse tree produced by {@link PracticaParser#expcond}.
 	 * @param ctx the parse tree

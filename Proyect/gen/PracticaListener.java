@@ -67,6 +67,16 @@ public interface PracticaListener extends ParseTreeListener {
 	 */
 	void exitCtelist(PracticaParser.CtelistContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PracticaParser#ctelist1}.
+	 * @param ctx the parse tree
+	 */
+	void enterCtelist1(PracticaParser.Ctelist1Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link PracticaParser#ctelist1}.
+	 * @param ctx the parse tree
+	 */
+	void exitCtelist1(PracticaParser.Ctelist1Context ctx);
+	/**
 	 * Enter a parse tree produced by {@link PracticaParser#simpvalue}.
 	 * @param ctx the parse tree
 	 */
@@ -86,6 +96,16 @@ public interface PracticaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitVarlist(PracticaParser.VarlistContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PracticaParser#varlis1}.
+	 * @param ctx the parse tree
+	 */
+	void enterVarlis1(PracticaParser.Varlis1Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link PracticaParser#varlis1}.
+	 * @param ctx the parse tree
+	 */
+	void exitVarlis1(PracticaParser.Varlis1Context ctx);
 	/**
 	 * Enter a parse tree produced by {@link PracticaParser#vardef}.
 	 * @param ctx the parse tree
@@ -287,6 +307,16 @@ public interface PracticaListener extends ParseTreeListener {
 	 */
 	void exitExplist(PracticaParser.ExplistContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PracticaParser#explist1}.
+	 * @param ctx the parse tree
+	 */
+	void enterExplist1(PracticaParser.Explist1Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link PracticaParser#explist1}.
+	 * @param ctx the parse tree
+	 */
+	void exitExplist1(PracticaParser.Explist1Context ctx);
+	/**
 	 * Enter a parse tree produced by {@link PracticaParser#if}.
 	 * @param ctx the parse tree
 	 */
@@ -307,6 +337,16 @@ public interface PracticaListener extends ParseTreeListener {
 	 */
 	void exitElse(PracticaParser.ElseContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PracticaParser#else1}.
+	 * @param ctx the parse tree
+	 */
+	void enterElse1(PracticaParser.Else1Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link PracticaParser#else1}.
+	 * @param ctx the parse tree
+	 */
+	void exitElse1(PracticaParser.Else1Context ctx);
+	/**
 	 * Enter a parse tree produced by {@link PracticaParser#while}.
 	 * @param ctx the parse tree
 	 */
@@ -316,6 +356,36 @@ public interface PracticaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitWhile(PracticaParser.WhileContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PracticaParser#dowhile}.
+	 * @param ctx the parse tree
+	 */
+	void enterDowhile(PracticaParser.DowhileContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PracticaParser#dowhile}.
+	 * @param ctx the parse tree
+	 */
+	void exitDowhile(PracticaParser.DowhileContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PracticaParser#for}.
+	 * @param ctx the parse tree
+	 */
+	void enterFor(PracticaParser.ForContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PracticaParser#for}.
+	 * @param ctx the parse tree
+	 */
+	void exitFor(PracticaParser.ForContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PracticaParser#for1}.
+	 * @param ctx the parse tree
+	 */
+	void enterFor1(PracticaParser.For1Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link PracticaParser#for1}.
+	 * @param ctx the parse tree
+	 */
+	void exitFor1(PracticaParser.For1Context ctx);
 	/**
 	 * Enter a parse tree produced by {@link PracticaParser#expcond}.
 	 * @param ctx the parse tree

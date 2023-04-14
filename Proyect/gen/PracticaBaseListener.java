@@ -88,6 +88,18 @@ public class PracticaBaseListener implements PracticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCtelist1(PracticaParser.Ctelist1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCtelist1(PracticaParser.Ctelist1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterSimpvalue(PracticaParser.SimpvalueContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -107,6 +119,18 @@ public class PracticaBaseListener implements PracticaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitVarlist(PracticaParser.VarlistContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVarlis1(PracticaParser.Varlis1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVarlis1(PracticaParser.Varlis1Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -352,6 +376,18 @@ public class PracticaBaseListener implements PracticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterExplist1(PracticaParser.Explist1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExplist1(PracticaParser.Explist1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIf(PracticaParser.IfContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -376,6 +412,18 @@ public class PracticaBaseListener implements PracticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterElse1(PracticaParser.Else1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitElse1(PracticaParser.Else1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterWhile(PracticaParser.WhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -383,6 +431,42 @@ public class PracticaBaseListener implements PracticaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitWhile(PracticaParser.WhileContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDowhile(PracticaParser.DowhileContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDowhile(PracticaParser.DowhileContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFor(PracticaParser.ForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFor(PracticaParser.ForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFor1(PracticaParser.For1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFor1(PracticaParser.For1Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
