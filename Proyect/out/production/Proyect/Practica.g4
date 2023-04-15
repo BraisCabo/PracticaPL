@@ -3,54 +3,88 @@ grammar Practica;
 program: dcllist funlist sentlist;//
 dcllist: | dcl dcllist;
 funlist: | funcdef funlist;
-sentlist: mainhead '{' code '}';
+sentlist: mainhead LBRACE code RBRACE;
 
 dcl: ctelist | varlist;
-ctelist: '#define' CONST_DEF_IDENTIFIER simpvalue ctelist1;
-ctelist1: '#define' CONST_DEF_IDENTIFIER simpvalue ctelist1 | ;
+ctelist: DEFINE CONST_DEF_IDENTIFIER simpvalue ctelist1;
+ctelist1: DEFINE CONST_DEF_IDENTIFIER simpvalue ctelist1 | ;
 simpvalue: NUMERIC_INTEGER_CONST | NUMERIC_REAL_CONST | STRING_CONST;
-//Si nos dicen que se puede identificador: simpvalue: NUMERIC_INTEGER_CONST | NUMERIC_REAL_CONST | STRING_CONST | IDENTIFIER;
-varlist: vardef ';' varlis1;
-varlis1: vardef ';' varlis1 | ;
-vardef: tbas IDENTIFIER | tbas IDENTIFIER '=' simpvalue;
-tbas: 'integer' | 'float' | 'string' | tvoid | struct ;
-tvoid: 'void';
-struct : 'struct' '{' varlist '}';
+varlist: vardef SEMICOLON varlis1;
+varlis1: vardef SEMICOLON varlis1 | ;
+vardef: tbas IDENTIFIER | tbas IDENTIFIER SASIGN simpvalue;
+tbas: INTEGER | FLOAT | STRING | tvoid | struct ;
+tvoid: VOID;
+struct : STRUCT LBRACE varlist RBRACE;
 
-funcdef: funchead '{' code '}';
-funchead: tbas IDENTIFIER '(' typedef1 ')';
+funcdef: funchead LBRACE code RBRACE;
+funchead: tbas IDENTIFIER LPARENTHESIS typedef1 RPARENTHESIS;
 typedef1 : | typedef2;
 typedef2 : tbas IDENTIFIER typedef2_tail;
-typedef2_tail : ',' tbas IDENTIFIER typedef2_tail | ;
+typedef2_tail : COMMA tbas IDENTIFIER typedef2_tail | ;
 
-mainhead: tvoid 'Main' '(' typedef1 ')';
+mainhead: tvoid MAIN LPARENTHESIS typedef1 RPARENTHESIS;
 code: | sent code;
-sent: asig ';' | funccall ';' | vardef ';' | if | while | for | dowhile;
-asig: IDENTIFIER '=' exp;//
+sent: asig SEMICOLON | funccall SEMICOLON | vardef SEMICOLON | if | while | for | dowhile;
+asig: IDENTIFIER SASIGN exp;//
 exp: factor exp1;
 exp1: op factor exp1 | ;
-op: '+' | '-' | '*' | 'DIV' | 'MOD';
-factor: simpvalue | '(' exp ')' | funccall;
+op: PLUS | LESS | TIMES | DIV | MOD;
+factor: simpvalue | LPARENTHESIS exp RPARENTHESIS | funccall;
 funccall : IDENTIFIER subpparamlist | CONST_DEF_IDENTIFIER subpparamlist;
-subpparamlist: '(' explist ')' | ;
+subpparamlist: LPARENTHESIS explist RPARENTHESIS | ;
 explist : exp explist1;
-explist1: ',' explist | ;
+explist1: COMMA explist | ;
 
-if  : 'if' expcond '{' code '}' else;
-else: 'else' else1 | ;
-else1: '{' code '}' | 'if' expcond '{' code '}' else;
-while : 'while' '(' expcond ')' '{' code '}';
-dowhile : 'do' '{' code '}' 'while' '(' expcond ')' ';';
-for : 'for'  '(' for1;
-for1:  vardef ';' expcond ';' asig ')' '{' code '}'
-    |  asig ';' expcond ';' asig ')' '{' code '}';
+if  : IF expcond LBRACE code RBRACE else;
+else: ELSE else1 | ;
+else1: LBRACE code RBRACE | IF expcond LBRACE code RBRACE else;
+while : WHILE LPARENTHESIS expcond RPARENTHESIS LBRACE code RBRACE;
+dowhile : DO LBRACE code RBRACE WHILE LPARENTHESIS expcond RPARENTHESIS SEMICOLON;
+for : FOR  LPARENTHESIS for1;
+for1:  vardef SEMICOLON expcond SEMICOLON asig RPARENTHESIS LBRACE code RBRACE
+    |  asig SEMICOLON expcond SEMICOLON asig RPARENTHESIS LBRACE code RBRACE;
 
 expcond : factorcond expcond_tail;
 expcond_tail : oplog factorcond expcond_tail| ;
-oplog : '||' | '&';
-factorcond : exp opcomp exp | '(' expcond ')' | '!' factorcond;
-opcomp : '<' | '>' | '<=' | '>=' | '==';
+oplog : OR | AND;
+factorcond : exp opcomp exp | LPARENTHESIS expcond RPARENTHESIS | NOT factorcond;
+opcomp : SMORE | SLESS | SMOREE | SLESSE | SEQUAL;
 
+//palabras reservadas
+LBRACE: '{';
+RBRACE: '}';
+DEFINE: '#define';
+SEMICOLON: ';';
+INTEGER: 'integer';
+FLOAT: 'float';
+STRING: 'string';
+VOID: 'void';
+STRUCT: 'struct';
+COMMA: ',';
+MAIN: 'Main';
+LPARENTHESIS: '(';
+RPARENTHESIS: ')';
+IF: 'if';
+ELSE: 'else';
+WHILE: 'while';
+DO: 'do';
+FOR: 'for';
+AND: '&';
+OR: '||';
+NOT: '!';
+SMORE: '>';
+SLESS: '<';
+SMOREE: '>=';
+SLESSE: '<=';
+SEQUAL: '==';
+SASIGN: '=';
+PLUS: '+';
+LESS: '-';
+TIMES: '*';
+DIV: 'DIV';
+MOD: 'MOD';
+
+//reglas léxicas
 CONST_DEF_IDENTIFIER: '_'* [A-Z] [A-Z0-9_]*;
 IDENTIFIER: ('_'+ [a-z0-9] | [a-z]) [a-z0-9_]*;
 NUMERIC_INTEGER_CONST: [+-]? DIGIT+;
