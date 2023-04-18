@@ -67,16 +67,6 @@ public interface PracticaListener extends ParseTreeListener {
 	 */
 	void exitCtelist(PracticaParser.CtelistContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link PracticaParser#ctelist1}.
-	 * @param ctx the parse tree
-	 */
-	void enterCtelist1(PracticaParser.Ctelist1Context ctx);
-	/**
-	 * Exit a parse tree produced by {@link PracticaParser#ctelist1}.
-	 * @param ctx the parse tree
-	 */
-	void exitCtelist1(PracticaParser.Ctelist1Context ctx);
-	/**
 	 * Enter a parse tree produced by {@link PracticaParser#simpvalue}.
 	 * @param ctx the parse tree
 	 */
@@ -97,16 +87,6 @@ public interface PracticaListener extends ParseTreeListener {
 	 */
 	void exitVarlist(PracticaParser.VarlistContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link PracticaParser#varlis1}.
-	 * @param ctx the parse tree
-	 */
-	void enterVarlis1(PracticaParser.Varlis1Context ctx);
-	/**
-	 * Exit a parse tree produced by {@link PracticaParser#varlis1}.
-	 * @param ctx the parse tree
-	 */
-	void exitVarlis1(PracticaParser.Varlis1Context ctx);
-	/**
 	 * Enter a parse tree produced by {@link PracticaParser#vardef}.
 	 * @param ctx the parse tree
 	 */
@@ -116,6 +96,16 @@ public interface PracticaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitVardef(PracticaParser.VardefContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PracticaParser#vardef2}.
+	 * @param ctx the parse tree
+	 */
+	void enterVardef2(PracticaParser.Vardef2Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link PracticaParser#vardef2}.
+	 * @param ctx the parse tree
+	 */
+	void exitVardef2(PracticaParser.Vardef2Context ctx);
 	/**
 	 * Enter a parse tree produced by {@link PracticaParser#tbas}.
 	 * @param ctx the parse tree
@@ -147,6 +137,16 @@ public interface PracticaListener extends ParseTreeListener {
 	 */
 	void exitStruct(PracticaParser.StructContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PracticaParser#varlist2}.
+	 * @param ctx the parse tree
+	 */
+	void enterVarlist2(PracticaParser.Varlist2Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link PracticaParser#varlist2}.
+	 * @param ctx the parse tree
+	 */
+	void exitVarlist2(PracticaParser.Varlist2Context ctx);
+	/**
 	 * Enter a parse tree produced by {@link PracticaParser#funcdef}.
 	 * @param ctx the parse tree
 	 */
@@ -176,16 +176,6 @@ public interface PracticaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTypedef1(PracticaParser.Typedef1Context ctx);
-	/**
-	 * Enter a parse tree produced by {@link PracticaParser#typedef2}.
-	 * @param ctx the parse tree
-	 */
-	void enterTypedef2(PracticaParser.Typedef2Context ctx);
-	/**
-	 * Exit a parse tree produced by {@link PracticaParser#typedef2}.
-	 * @param ctx the parse tree
-	 */
-	void exitTypedef2(PracticaParser.Typedef2Context ctx);
 	/**
 	 * Enter a parse tree produced by {@link PracticaParser#typedef2_tail}.
 	 * @param ctx the parse tree

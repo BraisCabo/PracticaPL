@@ -8,6 +8,21 @@ Sustituye Practica por el nombre del fichero que contiene la especificación de 
 public class ClasePrincipal {
     public static void main(String[] args) {
         try{
+            String programName = args[0].substring(args[0].lastIndexOf("\\") + 1, args[0].lastIndexOf("."));
+            System.out.println("<!DOCTYPE html>\n" +
+                    "<html>\n" +
+                    "<head>\n" +
+                    "<TITLE>"+ programName + "</TITLE>\n"+
+                    "<style>\n" +
+                    ".cte {color:rgb(19,189,72);}\n" +
+                    ".ident {color:rgb(55,40,244);}\n" +
+                    ".palres {color:rgb(0,0,0);font-weight:bold;}\n" +
+                    "</style>\n" +
+                    "</head>\n" +
+                    "<body>\n"+
+                    "<A NAME=\"inicio\">\n" +
+                    "<H1>" + programName + "<H1>\n" +
+                    "<H2>Funciones<H2>\n");
 // Preparar el fichero de entrada para asignarlo al analizador léxico
             CharStream input = CharStreams.fromFileName(args[0]);
 // Crear el objeto correspondiente al analizador léxico con el fichero de
@@ -34,6 +49,8 @@ gramática
             anasint.addErrorListener(new MiSintaxisListener());
             anasint.setErrorHandler(errorStrategy);
             anasint.program();
+            System.out.println("</html>");
+
         } catch (org.antlr.v4.runtime.RecognitionException e) {
 //Fallo al reconocer la entrada
             System.err.println("REC " + e.getMessage());

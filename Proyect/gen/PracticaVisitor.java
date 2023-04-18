@@ -46,12 +46,6 @@ public interface PracticaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCtelist(PracticaParser.CtelistContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PracticaParser#ctelist1}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCtelist1(PracticaParser.Ctelist1Context ctx);
-	/**
 	 * Visit a parse tree produced by {@link PracticaParser#simpvalue}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -64,17 +58,17 @@ public interface PracticaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVarlist(PracticaParser.VarlistContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PracticaParser#varlis1}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVarlis1(PracticaParser.Varlis1Context ctx);
-	/**
 	 * Visit a parse tree produced by {@link PracticaParser#vardef}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitVardef(PracticaParser.VardefContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PracticaParser#vardef2}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVardef2(PracticaParser.Vardef2Context ctx);
 	/**
 	 * Visit a parse tree produced by {@link PracticaParser#tbas}.
 	 * @param ctx the parse tree
@@ -94,6 +88,12 @@ public interface PracticaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStruct(PracticaParser.StructContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PracticaParser#varlist2}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVarlist2(PracticaParser.Varlist2Context ctx);
+	/**
 	 * Visit a parse tree produced by {@link PracticaParser#funcdef}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -111,12 +111,6 @@ public interface PracticaVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitTypedef1(PracticaParser.Typedef1Context ctx);
-	/**
-	 * Visit a parse tree produced by {@link PracticaParser#typedef2}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTypedef2(PracticaParser.Typedef2Context ctx);
 	/**
 	 * Visit a parse tree produced by {@link PracticaParser#typedef2_tail}.
 	 * @param ctx the parse tree

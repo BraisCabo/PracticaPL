@@ -88,18 +88,6 @@ public class PracticaBaseListener implements PracticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCtelist1(PracticaParser.Ctelist1Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCtelist1(PracticaParser.Ctelist1Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterSimpvalue(PracticaParser.SimpvalueContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -124,18 +112,6 @@ public class PracticaBaseListener implements PracticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVarlis1(PracticaParser.Varlis1Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVarlis1(PracticaParser.Varlis1Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterVardef(PracticaParser.VardefContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -143,6 +119,18 @@ public class PracticaBaseListener implements PracticaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitVardef(PracticaParser.VardefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVardef2(PracticaParser.Vardef2Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVardef2(PracticaParser.Vardef2Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -184,6 +172,18 @@ public class PracticaBaseListener implements PracticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterVarlist2(PracticaParser.Varlist2Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVarlist2(PracticaParser.Varlist2Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFuncdef(PracticaParser.FuncdefContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -215,18 +215,6 @@ public class PracticaBaseListener implements PracticaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitTypedef1(PracticaParser.Typedef1Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTypedef2(PracticaParser.Typedef2Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTypedef2(PracticaParser.Typedef2Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
