@@ -19,7 +19,7 @@ void savee(){
 
 }
 
-void Main (){
+void Main (string hola){
     string codificado;
     codificado = codificar_cadena(nombre, FECHA);
     save(codificado);
