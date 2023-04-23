@@ -1,3 +1,4 @@
+"C:\Program Files\Java\jdk-19\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.2\lib\idea_rt.jar=57552:C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.2\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\brais\Desktop\Ingenieria\PL\PracticaPL\Proyect\out\production\Proyect;C:\Users\brais\Downloads\antlr-4.11.1-complete.jar ClasePrincipal FicheroDePrueba.txt
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,47 +11,24 @@
 </head>
 <body>
 <A NAME="inicio">
-<H1>FicheroDePrueba<H1>
-<H2>Funciones<H2>
+<H1>FicheroDePrueba</H1>
+<H2>Funciones</H2>
 
 <UL>
 <LI><A HREF="#Main">Programa Principal</A></LI>
-<LI><A HREF="#codificar_cadena">string codificar_cadena(string cadena, integer desplazamiento)</A></LI>
-<LI><A HREF="#save">void save(string nombre)</A></LI>
-<LI><A HREF="#savee">void savee()</A></LI>
+<LI><A HREF="#add">integer add(integer x, integer y)</A></LI>
 </UL>
 </body>
 <hr/>
-<A NAME="codificar_cadena">
+<A NAME="add">
 <code>
-<SPAN CLASS="palres">string</SPAN> <SPAN CLASS="ident">codificar_cadena</SPAN>(<SPAN CLASS="palres">string</SPAN> <SPAN CLASS="ident">cadena</SPAN>, <SPAN CLASS="palres">integer</SPAN> <SPAN CLASS="ident">desplazamiento</SPAN>)
-{
-}
+<SPAN CLASS="palres">integer</SPAN> <SPAN CLASS="ident">add</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="palres">integer</SPAN> <SPAN CLASS="ident">x</SPAN>, <SPAN CLASS="palres">integer</SPAN> <SPAN CLASS="ident">y</SPAN><SPAN CLASS="palres">)</SPAN>
+<SPAN CLASS="palres">{</SPAN>
+<DIV style="text-indent: .5cm"><SPAN CLASS="ident">return</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">x</SPAN> <SPAN CLASS="palres">+</SPAN> <SPAN CLASS="ident">y</SPAN><SPAN CLASS="palres">)</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
+<SPAN CLASS="palres">}</SPAN>
 <br/>
 </code>
-<A HREF="#codificar_cadena">Inicio de la función</A>
-<A HREF="#inicio">Inicio del programa</A>
-<hr/>
-
-<A NAME="save">
-<code>
-<SPAN CLASS="palres">void</SPAN> <SPAN CLASS="ident">save</SPAN>(<SPAN CLASS="palres">string</SPAN> <SPAN CLASS="ident">nombre</SPAN>)
-{
-}
-<br/>
-</code>
-<A HREF="#save">Inicio de la función</A>
-<A HREF="#inicio">Inicio del programa</A>
-<hr/>
-
-<A NAME="savee">
-<code>
-<SPAN CLASS="palres">void</SPAN> <SPAN CLASS="ident">savee</SPAN>()
-{
-}
-<br/>
-</code>
-<A HREF="#savee">Inicio de la función</A>
+<A HREF="#add">Inicio de la función</A>
 <A HREF="#inicio">Inicio del programa</A>
 <hr/>
 
@@ -58,22 +36,52 @@
 <H2>Programa Principal</H2>
 
 <code>
-<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="FECHA"><SPAN CLASS="ident">FECHA</SPAN> <SPAN CLASS="cte">2023</SPAN></DIV>
-<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="CODIGO"><SPAN CLASS="ident">CODIGO</SPAN> <SPAN CLASS="cte">10</SPAN></DIV>
-<DIV><SPAN CLASS="palres">integer</SPAN> <A NAME="n_alumnos"><SPAN CLASS="ident">n_alumnos</SPAN><SPAN CLASS="palres">;</SPAN></DIV>
-<DIV><SPAN CLASS="palres">float</SPAN> <A NAME="__valor_real"><SPAN CLASS="ident">__valor_real</SPAN><SPAN CLASS="palres">;</SPAN></DIV>
-<DIV><SPAN CLASS="palres">string</SPAN> <A NAME="nombre"><SPAN CLASS="ident">nombre</SPAN><SPAN CLASS="palres"> =</SPAN> <SPAN CLASS="cte">"alumno1"</SPAN><SPAN CLASS="palres">;</SPAN></DIV>
+<DIV><SPAN CLASS="palres">integer</SPAN> <A NAME="var1"><SPAN CLASS="ident">var1</SPAN><SPAN CLASS="palres">;</SPAN></DIV>
+<DIV><SPAN CLASS="palres">float</SPAN> <A NAME="var2"><SPAN CLASS="ident">var2</SPAN><SPAN CLASS="palres"> =</SPAN> <SPAN CLASS="cte">3.14</SPAN><SPAN CLASS="palres">;</SPAN></DIV>
+<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="MAX_VALUE"><SPAN CLASS="ident">MAX_VALUE</SPAN> <SPAN CLASS="cte">100</SPAN></DIV>
+<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="MESSAGE"><SPAN CLASS="ident">MESSAGE</SPAN> <SPAN CLASS="cte">"Hello world!"</SPAN></DIV>
+<DIV><SPAN CLASS="palres">struct</SPAN> <A NAME="person"><SPAN CLASS="ident">person</SPAN><SPAN CLASS="palres">;</SPAN></DIV>
 </code>
 <br/>
 
 <A NAME="Main">
 <code>
-<SPAN CLASS="palres">void</SPAN> <SPAN CLASS="ident">Main</SPAN>(<SPAN CLASS="palres">string</SPAN> <SPAN CLASS="ident">hola</SPAN>)
-{
-}
+<SPAN CLASS="palres">void</SPAN> <SPAN CLASS="ident">Main</SPAN>()
+<SPAN CLASS="palres">{</SPAN>
+<DIV style="text-indent: .5cm"><SPAN CLASS="palres">integer</SPAN> <A NAME="a"><SPAN CLASS="ident">a</SPAN><SPAN CLASS="palres"> =</SPAN> <SPAN CLASS="cte">10</SPAN>;</DIV>
+<DIV style="text-indent: .5cm"><SPAN CLASS="palres">float</SPAN> <A NAME="b"><SPAN CLASS="ident">b</SPAN><SPAN CLASS="palres"> =</SPAN> <SPAN CLASS="cte">2.5000</SPAN>;</DIV>
+<DIV style="text-indent: .5cm"><SPAN CLASS="palres">string</SPAN> <A NAME="c"><SPAN CLASS="ident">c</SPAN><SPAN CLASS="palres"> =</SPAN> <SPAN CLASS="cte">"Hola"</SPAN>;</DIV>
+<DIV style="text-indent: .5cm"><SPAN CLASS="ident">var1</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="ident">a</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
+<DIV style="text-indent: .5cm"><SPAN CLASS="ident">var2</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="ident">b</SPAN> <SPAN CLASS="palres">*</SPAN> <SPAN CLASS="ident">var1</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
+<DIV style="text-indent: .5cm"><SPAN CLASS="ident">personage</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="cte">25</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
+<DIV style="text-indent: .5cm"><SPAN CLASS="ident">personname</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="cte">"Juan"</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
+<DIV style="text-indent: .5cm"><SPAN CLASS="palres">if</SPAN> <SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">var1</SPAN> <SPAN CLASS="palres">></SPAN> <SPAN CLASS="ident">MAX_VALUE</SPAN><SPAN CLASS="palres">)</SPAN>
+<SPAN CLASS="palres">{</SPAN>
+<DIV style="padding-left: 0.5cm">
+<DIV style="text-indent: .5cm"><SPAN CLASS="ident">print</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">MESSAGE</SPAN><SPAN CLASS="palres">)</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
+<SPAN CLASS="palres">}</SPAN>
+<br/>
+</DIV><DIV style="text-indent: .5cm"><SPAN CLASS="palres">else</SPAN> <SPAN CLASS="palres">if</SPAN> <SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">hola</SPAN> <SPAN CLASS="palres">==</SPAN> <SPAN CLASS="ident">adios</SPAN><SPAN CLASS="palres">)</SPAN>
+<SPAN CLASS="palres">{</SPAN>
+<DIV style="padding-left: 0.5cm">
+<DIV style="text-indent: .5cm"><SPAN CLASS="ident">print</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="cte">"Var1 is less than or equal to max value."</SPAN><SPAN CLASS="palres">)</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
+<SPAN CLASS="palres">}</SPAN>
+<br/>
+</DIV><DIV style="text-indent: .5cm"><SPAN CLASS="palres">else</SPAN> <SPAN CLASS="palres">{</SPAN>
+<DIV style="padding-left: 0.5cm">
+<DIV style="text-indent: .5cm"><SPAN CLASS="ident">a</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="ident">b</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
+<SPAN CLASS="palres">}</SPAN>
+<br/>
+</DIV></DIV></DIV></DIV>
+<DIV style="text-indent: .5cm"></DIV>
+<DIV style="text-indent: .5cm"></DIV>
+<DIV style="text-indent: .5cm"></DIV>
+<SPAN CLASS="palres">}</SPAN>
 
 <br/>
 </code>
 <A HREF="#Main">Inicio del programa principal</A>
 <A HREF="#inicio">Inicio del programa</A>
 </html>
+
+Process finished with exit code 0

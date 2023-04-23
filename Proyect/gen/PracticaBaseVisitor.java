@@ -227,14 +227,14 @@ public class PracticaBaseVisitor<T> extends AbstractParseTreeVisitor<T> implemen
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIf(PracticaParser.IfContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMiif(PracticaParser.MiifContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitElse(PracticaParser.ElseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMielse(PracticaParser.MielseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -248,21 +248,21 @@ public class PracticaBaseVisitor<T> extends AbstractParseTreeVisitor<T> implemen
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitWhile(PracticaParser.WhileContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMiwhile(PracticaParser.MiwhileContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDowhile(PracticaParser.DowhileContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMidowhile(PracticaParser.MidowhileContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFor(PracticaParser.ForContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMifor(PracticaParser.MiforContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

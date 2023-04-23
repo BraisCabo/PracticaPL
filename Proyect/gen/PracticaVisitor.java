@@ -190,17 +190,17 @@ public interface PracticaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExplist1(PracticaParser.Explist1Context ctx);
 	/**
-	 * Visit a parse tree produced by {@link PracticaParser#if}.
+	 * Visit a parse tree produced by {@link PracticaParser#miif}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIf(PracticaParser.IfContext ctx);
+	T visitMiif(PracticaParser.MiifContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PracticaParser#else}.
+	 * Visit a parse tree produced by {@link PracticaParser#mielse}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitElse(PracticaParser.ElseContext ctx);
+	T visitMielse(PracticaParser.MielseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PracticaParser#else1}.
 	 * @param ctx the parse tree
@@ -208,23 +208,23 @@ public interface PracticaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitElse1(PracticaParser.Else1Context ctx);
 	/**
-	 * Visit a parse tree produced by {@link PracticaParser#while}.
+	 * Visit a parse tree produced by {@link PracticaParser#miwhile}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitWhile(PracticaParser.WhileContext ctx);
+	T visitMiwhile(PracticaParser.MiwhileContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PracticaParser#dowhile}.
+	 * Visit a parse tree produced by {@link PracticaParser#midowhile}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDowhile(PracticaParser.DowhileContext ctx);
+	T visitMidowhile(PracticaParser.MidowhileContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PracticaParser#for}.
+	 * Visit a parse tree produced by {@link PracticaParser#mifor}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFor(PracticaParser.ForContext ctx);
+	T visitMifor(PracticaParser.MiforContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PracticaParser#for1}.
 	 * @param ctx the parse tree

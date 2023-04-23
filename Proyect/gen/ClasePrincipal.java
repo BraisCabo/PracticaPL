@@ -9,6 +9,14 @@ public class ClasePrincipal {
     public static void main(String[] args) {
         try{
             String programName = args[0].substring(args[0].lastIndexOf("\\") + 1, args[0].lastIndexOf("."));
+            String fileName = programName + ".html";
+            try {
+                PrintStream ps = new PrintStream(new BufferedOutputStream(new FileOutputStream(fileName,true)),true);
+                System.setOut(ps);
+            } catch (FileNotFoundException ex) {
+                System.err.println("Se ha producido una excepción FileNotFoundException");
+            }
+            System.setOut(new PrintStream(new FileOutputStream(fileName)));
             System.out.println("<!DOCTYPE html>\n" +
                     "<html>\n" +
                     "<head>\n" +
@@ -21,8 +29,8 @@ public class ClasePrincipal {
                     "</head>\n" +
                     "<body>\n"+
                     "<A NAME=\"inicio\">\n" +
-                    "<H1>" + programName + "<H1>\n" +
-                    "<H2>Funciones<H2>\n");
+                    "<H1>" + programName + "</H1>\n" +
+                    "<H2>Funciones</H2>\n");
 // Preparar el fichero de entrada para asignarlo al analizador léxico
             CharStream input = CharStreams.fromFileName(args[0]);
 // Crear el objeto correspondiente al analizador léxico con el fichero de

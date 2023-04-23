@@ -307,25 +307,25 @@ public interface PracticaListener extends ParseTreeListener {
 	 */
 	void exitExplist1(PracticaParser.Explist1Context ctx);
 	/**
-	 * Enter a parse tree produced by {@link PracticaParser#if}.
+	 * Enter a parse tree produced by {@link PracticaParser#miif}.
 	 * @param ctx the parse tree
 	 */
-	void enterIf(PracticaParser.IfContext ctx);
+	void enterMiif(PracticaParser.MiifContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link PracticaParser#if}.
+	 * Exit a parse tree produced by {@link PracticaParser#miif}.
 	 * @param ctx the parse tree
 	 */
-	void exitIf(PracticaParser.IfContext ctx);
+	void exitMiif(PracticaParser.MiifContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link PracticaParser#else}.
+	 * Enter a parse tree produced by {@link PracticaParser#mielse}.
 	 * @param ctx the parse tree
 	 */
-	void enterElse(PracticaParser.ElseContext ctx);
+	void enterMielse(PracticaParser.MielseContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link PracticaParser#else}.
+	 * Exit a parse tree produced by {@link PracticaParser#mielse}.
 	 * @param ctx the parse tree
 	 */
-	void exitElse(PracticaParser.ElseContext ctx);
+	void exitMielse(PracticaParser.MielseContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PracticaParser#else1}.
 	 * @param ctx the parse tree
@@ -337,35 +337,35 @@ public interface PracticaListener extends ParseTreeListener {
 	 */
 	void exitElse1(PracticaParser.Else1Context ctx);
 	/**
-	 * Enter a parse tree produced by {@link PracticaParser#while}.
+	 * Enter a parse tree produced by {@link PracticaParser#miwhile}.
 	 * @param ctx the parse tree
 	 */
-	void enterWhile(PracticaParser.WhileContext ctx);
+	void enterMiwhile(PracticaParser.MiwhileContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link PracticaParser#while}.
+	 * Exit a parse tree produced by {@link PracticaParser#miwhile}.
 	 * @param ctx the parse tree
 	 */
-	void exitWhile(PracticaParser.WhileContext ctx);
+	void exitMiwhile(PracticaParser.MiwhileContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link PracticaParser#dowhile}.
+	 * Enter a parse tree produced by {@link PracticaParser#midowhile}.
 	 * @param ctx the parse tree
 	 */
-	void enterDowhile(PracticaParser.DowhileContext ctx);
+	void enterMidowhile(PracticaParser.MidowhileContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link PracticaParser#dowhile}.
+	 * Exit a parse tree produced by {@link PracticaParser#midowhile}.
 	 * @param ctx the parse tree
 	 */
-	void exitDowhile(PracticaParser.DowhileContext ctx);
+	void exitMidowhile(PracticaParser.MidowhileContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link PracticaParser#for}.
+	 * Enter a parse tree produced by {@link PracticaParser#mifor}.
 	 * @param ctx the parse tree
 	 */
-	void enterFor(PracticaParser.ForContext ctx);
+	void enterMifor(PracticaParser.MiforContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link PracticaParser#for}.
+	 * Exit a parse tree produced by {@link PracticaParser#mifor}.
 	 * @param ctx the parse tree
 	 */
-	void exitFor(PracticaParser.ForContext ctx);
+	void exitMifor(PracticaParser.MiforContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PracticaParser#for1}.
 	 * @param ctx the parse tree

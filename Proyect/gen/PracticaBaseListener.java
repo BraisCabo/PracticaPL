@@ -376,25 +376,25 @@ public class PracticaBaseListener implements PracticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIf(PracticaParser.IfContext ctx) { }
+	@Override public void enterMiif(PracticaParser.MiifContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIf(PracticaParser.IfContext ctx) { }
+	@Override public void exitMiif(PracticaParser.MiifContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElse(PracticaParser.ElseContext ctx) { }
+	@Override public void enterMielse(PracticaParser.MielseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitElse(PracticaParser.ElseContext ctx) { }
+	@Override public void exitMielse(PracticaParser.MielseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -412,37 +412,37 @@ public class PracticaBaseListener implements PracticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhile(PracticaParser.WhileContext ctx) { }
+	@Override public void enterMiwhile(PracticaParser.MiwhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWhile(PracticaParser.WhileContext ctx) { }
+	@Override public void exitMiwhile(PracticaParser.MiwhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDowhile(PracticaParser.DowhileContext ctx) { }
+	@Override public void enterMidowhile(PracticaParser.MidowhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDowhile(PracticaParser.DowhileContext ctx) { }
+	@Override public void exitMidowhile(PracticaParser.MidowhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFor(PracticaParser.ForContext ctx) { }
+	@Override public void enterMifor(PracticaParser.MiforContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFor(PracticaParser.ForContext ctx) { }
+	@Override public void exitMifor(PracticaParser.MiforContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
