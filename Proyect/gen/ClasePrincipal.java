@@ -20,7 +20,7 @@ public class ClasePrincipal {
             System.out.println("<!DOCTYPE html>\n" +
                     "<html>\n" +
                     "<head>\n" +
-                    "<TITLE>"+ programName + "</TITLE>\n"+
+                    "<TITLE>"+ args[0].substring(args[0].lastIndexOf("\\") + 1) + "</TITLE>\n"+
                     "<style>\n" +
                     ".cte {color:rgb(19,189,72);}\n" +
                     ".ident {color:rgb(55,40,244);}\n" +
@@ -29,8 +29,9 @@ public class ClasePrincipal {
                     "</head>\n" +
                     "<body>\n"+
                     "<A NAME=\"inicio\">\n" +
-                    "<H1>" + programName + "</H1>\n" +
-                    "<H2>Funciones</H2>\n");
+                    "<H1>" + args[0].substring(args[0].lastIndexOf("\\") + 1) + "</H1>\n" +
+                    "<A NAME=\"Funciones\">\n" +
+                    "<H2>Funciones</H2></A>\n");
 // Preparar el fichero de entrada para asignarlo al analizador léxico
             CharStream input = CharStreams.fromFileName(args[0]);
 // Crear el objeto correspondiente al analizador léxico con el fichero de

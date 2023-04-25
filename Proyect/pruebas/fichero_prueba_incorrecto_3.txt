@@ -1,0 +1,22 @@
+integer x;
+float y = 3.14;
+#define PI 3.1415926535
+void Main(string hola)
+{
+    x = 5;
+    y = y * PI;
+    if (x > 0 && y < 10)
+    {
+        printf("x es positivo " > " y y es menor que 10");
+    }
+    else
+    {
+        printf("x es negativo o y es mayor o igual que 10");
+    }
+    for (integer i = 0; i < 5; i = i + 1) {
+        for (integer j = 0; j < 5; j = j + 1) {
+            print(add(j, 1));
+        }
+        print(add(i 1));
+    }
+}

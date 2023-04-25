@@ -33,17 +33,6 @@ void Main() {
   personname = "Juan";
   if (var1 > MAX_VALUE) {
     print(MESSAGE);
-    struct {
-       integer age;
-      string name;
-    } person;
-    if (var1 > MAX_VALUE) {
-        print(MESSAGE);
-        struct {
-           integer age;
-          string name;
-        } person;
-      }
   } else if (hola == adios) {
     print("Var1 is less than or equal to max value.");
   }else{

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<TITLE>FicheroDePrueba</TITLE>
+<TITLE>FicheroDePrueba.txt</TITLE>
 <style>
 .cte {color:rgb(19,189,72);}
 .ident {color:rgb(55,40,244);}
@@ -10,111 +10,92 @@
 </head>
 <body>
 <A NAME="inicio">
-<H1>FicheroDePrueba</H1>
-<H2>Funciones</H2>
+<H1>FicheroDePrueba.txt</H1>
+<A NAME="Funciones">
+<H2>Funciones</H2></A>
 
 <UL>
-<LI><A HREF="#Main">Programa Principal</A></LI>
-<LI><A HREF="#add">integer add(integer x, integer y)</A></LI>
+<LI><A HREF="#Programa Principal">Programa Principal</A></LI>
+<LI><A HREF="#Funciones:add">integer add(integer x, integer y)</A></LI>
 </UL>
 </body>
 <hr/>
-<A NAME="add"></A>
 <code>
-<SPAN CLASS="palres">integer</SPAN> <SPAN CLASS="ident">add</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="palres">integer</SPAN> <SPAN CLASS="ident">x</SPAN>, <SPAN CLASS="palres">integer</SPAN> <SPAN CLASS="ident">y</SPAN><SPAN CLASS="palres">)</SPAN>
-<SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">return</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">x</SPAN> <SPAN CLASS="palres">+</SPAN> <SPAN CLASS="ident">y</SPAN><SPAN CLASS="palres">)</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<SPAN CLASS="palres">}</SPAN>
+<SPAN CLASS="palres">integer</SPAN> <A NAME="Funciones:add"><SPAN CLASS="ident"/>add</SPAN></A>(<SPAN CLASS="palres">integer</SPAN> <A NAME="Funciones:add:x"><SPAN CLASS="ident"/>x</SPAN></A>,<SPAN CLASS="palres">integer</SPAN> <A NAME="Funciones:add:y"><SPAN CLASS="ident"/>y</SPAN></A>)
+<br/>{
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">return</SPAN> (<A HREF="#Funciones:add:x"><SPAN CLASS="ident"/>x</SPAN></A> + <A HREF="#Funciones:add:y"><SPAN CLASS="ident"/>y</SPAN></A>);</DIV>
+}
 <br/>
 </code>
-<A HREF="#add">Inicio de la función</A>
+<A HREF="#Funciones:add">Inicio de la función</A>
 <A HREF="#inicio">Inicio del programa</A>
 <hr/>
 
 
-<H2>Programa Principal</H2>
+<A NAME="Programa Principal"><H2>Programa Principal</H2></A>
 
 <code>
-<DIV><SPAN CLASS="palres">integer</SPAN> <A NAME="var1"><SPAN CLASS="ident">var1</SPAN></A><SPAN CLASS="palres">;</SPAN></DIV>
-<DIV><SPAN CLASS="palres">float</SPAN> <A NAME="var2"><SPAN CLASS="ident">var2</SPAN></A><SPAN CLASS="palres"> =</SPAN> <SPAN CLASS="cte">3.14</SPAN><SPAN CLASS="palres">;</SPAN></DIV>
-<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="MAX_VALUE"><SPAN CLASS="ident"/>MAX_VALUE</SPAN></A> <SPAN CLASS="cte">100</SPAN></DIV>
-<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="MESSAGE"><SPAN CLASS="ident"/>MESSAGE</SPAN></A> <SPAN CLASS="cte">"Hello world!"</SPAN></DIV>
-<DIV><SPAN CLASS="palres"><SPAN CLASS="palres">struct</SPAN> <SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: 0.5cm"><SPAN CLASS="palres">integer</SPAN> <A NAME="age"><SPAN CLASS="ident">age</SPAN></A><SPAN CLASS="palres">;</SPAN></DIV>
+<DIV><SPAN CLASS="palres">integer</SPAN> <A NAME="Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A>;</DIV>
+<DIV><SPAN CLASS="palres">float</SPAN> <A NAME="Programa principal:var2"><SPAN CLASS="ident"/>var2</SPAN></A> = <SPAN CLASS="cte">3.14</SPAN>;</DIV>
+<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="Programa principal:MAX_VALUE"><SPAN CLASS="ident"/>MAX_VALUE</SPAN></A> <SPAN CLASS="cte">100</SPAN></DIV>
+<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="Programa principal:MESSAGE"><SPAN CLASS="ident"/>MESSAGE</SPAN></A> <SPAN CLASS="cte">"Hello world!"</SPAN></DIV>
+<DIV><SPAN CLASS="palres">struct</SPAN> <br/>{
+<DIV style="padding-left: 0.5cm"><SPAN CLASS="palres">integer</SPAN> <SPAN CLASS="ident"/>age</SPAN>;</DIV>
 
-<DIV style="padding-left: 0.5cm"><SPAN CLASS="palres">string</SPAN> <A NAME="name"><SPAN CLASS="ident">name</SPAN></A><SPAN CLASS="palres">;</SPAN></DIV>
-<SPAN CLASS="palres">}</SPAN></SPAN> <A NAME="person"><SPAN CLASS="ident">person</SPAN></A><SPAN CLASS="palres">;</SPAN></DIV>
+<DIV style="padding-left: 0.5cm"><SPAN CLASS="palres">string</SPAN> <SPAN CLASS="ident"/>name</SPAN>;</DIV>
+}<br/><A NAME="Programa principal:person"><SPAN CLASS="ident"/>person</SPAN></A>;</DIV>
 </code>
 <br/>
 
 <A NAME="Main"></A>
 <code>
-<SPAN CLASS="palres">void</SPAN> <SPAN CLASS="ident">Main</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="palres">)</SPAN>
-<SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">integer</SPAN> <A NAME="a"><SPAN CLASS="ident">a</SPAN></A><SPAN CLASS="palres"> =</SPAN> <SPAN CLASS="cte">10</SPAN>;</DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">float</SPAN> <A NAME="b"><SPAN CLASS="ident">b</SPAN></A><SPAN CLASS="palres"> =</SPAN> <SPAN CLASS="cte">2.5000</SPAN>;</DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">string</SPAN> <A NAME="c"><SPAN CLASS="ident">c</SPAN></A><SPAN CLASS="palres"> =</SPAN> <SPAN CLASS="cte">"Hola"</SPAN>;</DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">var1</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="ident">a</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">var2</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="ident">b</SPAN> <SPAN CLASS="palres">*</SPAN> <SPAN CLASS="ident">var1</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">personage</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="cte">25</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">personname</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="cte">"Juan"</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">if</SPAN> <SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">var1</SPAN> <SPAN CLASS="palres">></SPAN> <SPAN CLASS="ident">MAX_VALUE</SPAN><SPAN CLASS="palres">)</SPAN>
-<SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">print</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">MESSAGE</SPAN><SPAN CLASS="palres">)</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres"><SPAN CLASS="palres">struct</SPAN> <SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: 0.5cm"><SPAN CLASS="palres">integer</SPAN> <A NAME="age"><SPAN CLASS="ident">age</SPAN></A><SPAN CLASS="palres">;</SPAN></DIV>
-
-<DIV style="padding-left: 0.5cm"><SPAN CLASS="palres">string</SPAN> <A NAME="name"><SPAN CLASS="ident">name</SPAN></A><SPAN CLASS="palres">;</SPAN></DIV>
-<SPAN CLASS="palres">}</SPAN></SPAN> <A NAME="person"><SPAN CLASS="ident">person</SPAN></A>;</DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">if</SPAN> <SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">var1</SPAN> <SPAN CLASS="palres">></SPAN> <SPAN CLASS="ident">MAX_VALUE</SPAN><SPAN CLASS="palres">)</SPAN>
-<SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">print</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">MESSAGE</SPAN><SPAN CLASS="palres">)</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres"><SPAN CLASS="palres">struct</SPAN> <SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: 0.5cm"><SPAN CLASS="palres">integer</SPAN> <A NAME="age"><SPAN CLASS="ident">age</SPAN></A><SPAN CLASS="palres">;</SPAN></DIV>
-
-<DIV style="padding-left: 0.5cm"><SPAN CLASS="palres">string</SPAN> <A NAME="name"><SPAN CLASS="ident">name</SPAN></A><SPAN CLASS="palres">;</SPAN></DIV>
-<SPAN CLASS="palres">}</SPAN></SPAN> <A NAME="person"><SPAN CLASS="ident">person</SPAN></A>;</DIV>
-<SPAN CLASS="palres">}</SPAN>
+<SPAN CLASS="palres">void</SPAN> <A NAME="Programa principal:Main"><SPAN CLASS="ident"/>Main</SPAN></A>()
+<br/>{
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">integer</SPAN> <A NAME="Programa principal:Main:a"><SPAN CLASS="ident"/>a</SPAN></A> = <SPAN CLASS="cte">10</SPAN>;</DIV>
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">float</SPAN> <A NAME="Programa principal:Main:b"><SPAN CLASS="ident"/>b</SPAN></A> = <SPAN CLASS="cte">2.5000</SPAN>;</DIV>
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">string</SPAN> <A NAME="Programa principal:Main:c"><SPAN CLASS="ident"/>c</SPAN></A> = <SPAN CLASS="cte">"Hola"</SPAN>;</DIV>
+<DIV style="padding-left: .5cm"><A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A> = <A HREF="#Programa principal:Main:a"><SPAN CLASS="ident"/>a</SPAN></A>;</DIV>
+<DIV style="padding-left: .5cm"><A HREF="#Programa principal:var2"><SPAN CLASS="ident"/>var2</SPAN></A> = <A HREF="#Programa principal:Main:b"><SPAN CLASS="ident"/>b</SPAN></A> * <A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A>;</DIV>
+<DIV style="padding-left: .5cm"><SPAN CLASS="ident"/>personage</SPAN> = <SPAN CLASS="cte">25</SPAN>;</DIV>
+<DIV style="padding-left: .5cm"><SPAN CLASS="ident"/>personname</SPAN> = <SPAN CLASS="cte">"Juan"</SPAN>;</DIV>
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">if</SPAN> (<A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A> > <A HREF="#Programa principal:MAX_VALUE"><SPAN CLASS="ident"/>MAX_VALUE</SPAN></A>)
+<br/>{
+<DIV style="padding-left: .5cm"><SPAN CLASS="ident"/>print</SPAN>(<A HREF="#Programa principal:MESSAGE"><SPAN CLASS="ident"/>MESSAGE</SPAN></A>);</DIV>
+}
 <br/>
 
-</DIV>
-<SPAN CLASS="palres">}</SPAN>
+<SPAN CLASS="palres">else</SPAN> <SPAN CLASS="palres">if</SPAN> (<SPAN CLASS="ident"/>hola</SPAN> == <SPAN CLASS="ident"/>adios</SPAN>)
+<br/>{
+<DIV style="padding-left: .5cm"><SPAN CLASS="ident"/>print</SPAN>(<SPAN CLASS="cte">"Var1 is less than or equal to max value."</SPAN>);</DIV>
+}
 <br/>
 
-<SPAN CLASS="palres">else</SPAN> <SPAN CLASS="palres">if</SPAN> <SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">hola</SPAN> <SPAN CLASS="palres">==</SPAN> <SPAN CLASS="ident">adios</SPAN><SPAN CLASS="palres">)</SPAN>
-<SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">print</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="cte">"Var1 is less than or equal to max value."</SPAN><SPAN CLASS="palres">)</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<SPAN CLASS="palres">}</SPAN>
+<SPAN CLASS="palres">else</SPAN> <br/>{<DIV style="padding-left: .5cm"><A HREF="#Programa principal:Main:a"><SPAN CLASS="ident"/>a</SPAN></A> = <A HREF="#Programa principal:Main:b"><SPAN CLASS="ident"/>b</SPAN></A>;</DIV>
+}
 <br/>
 
-<SPAN CLASS="palres">else</SPAN> <SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: 0.5cm">
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">a</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="ident">b</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<SPAN CLASS="palres">}</SPAN>
-<br/>
-</DIV>
 
 
 </DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">while</SPAN> <SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">var2</SPAN> <SPAN CLASS="palres"><</SPAN> <SPAN CLASS="cte">10.0</SPAN><SPAN CLASS="palres">)</SPAN>
-<SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">var2</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="ident">var2</SPAN> <SPAN CLASS="palres">+</SPAN> <SPAN CLASS="cte">1.0</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<SPAN CLASS="palres">}</SPAN>
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">while</SPAN> (<A HREF="#Programa principal:var2"><SPAN CLASS="ident"/>var2</SPAN></A> < <SPAN CLASS="cte">10.0</SPAN>)
+<br/>{
+<DIV style="padding-left: .5cm"><A HREF="#Programa principal:var2"><SPAN CLASS="ident"/>var2</SPAN></A> = <A HREF="#Programa principal:var2"><SPAN CLASS="ident"/>var2</SPAN></A> + <SPAN CLASS="cte">1.0</SPAN>;</DIV>
+}
 <br/>
 
 </DIV>
 <DIV style="padding-left: .5cm"><SPAN CLASS="palres">do</SPAN>
-<SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">var1</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="ident">var1</SPAN> <SPAN CLASS="palres">-</SPAN> <SPAN CLASS="cte">1</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<SPAN CLASS="palres">}</SPAN>
-<SPAN CLASS="palres">while</SPAN> <SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">var1</SPAN> <SPAN CLASS="palres">></SPAN> <SPAN CLASS="cte">0</SPAN><SPAN CLASS="palres">)</SPAN><SPAN CLASS="palres">;</SPAN></DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">for</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="palres">integer</SPAN> <A NAME="i"><SPAN CLASS="ident">i</SPAN></A><SPAN CLASS="palres"> =</SPAN> <SPAN CLASS="cte">0</SPAN><SPAN CLASS="palres">;</SPAN> <SPAN CLASS="ident">i</SPAN> <SPAN CLASS="palres"><</SPAN> <SPAN CLASS="cte">5</SPAN><SPAN CLASS="palres">;</SPAN> <SPAN CLASS="ident">i</SPAN> <SPAN CLASS="palres">=</SPAN> <SPAN CLASS="ident">i</SPAN> <SPAN CLASS="palres">+</SPAN> <SPAN CLASS="cte">1</SPAN><SPAN CLASS="palres">)</SPAN><SPAN CLASS="palres">{</SPAN>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident">print</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">add</SPAN><SPAN CLASS="palres">(</SPAN><SPAN CLASS="ident">i</SPAN><SPAN CLASS="palres">,</SPAN> <SPAN CLASS="cte">1</SPAN><SPAN CLASS="palres">)</SPAN><SPAN CLASS="palres">)</SPAN><SPAN CLASS="palres">;</SPAN> </DIV>
-<SPAN CLASS="palres">}</SPAN></DIV>
-<SPAN CLASS="palres">}</SPAN>
+<br/>{
+<DIV style="padding-left: .5cm"><A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A> = <A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A> - <SPAN CLASS="cte">1</SPAN>;</DIV>
+}
+<SPAN CLASS="palres">while</SPAN> (<A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A> > <SPAN CLASS="cte">0</SPAN>);</DIV>
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">for</SPAN>(<SPAN CLASS="palres">integer</SPAN> <A NAME="Programa principal:Main:i"><SPAN CLASS="ident"/>i</SPAN></A> = <SPAN CLASS="cte">0</SPAN>; <A HREF="#Programa principal:Main:i"><SPAN CLASS="ident"/>i</SPAN></A> < <SPAN CLASS="cte">5</SPAN>; <A HREF="#Programa principal:Main:i"><SPAN CLASS="ident"/>i</SPAN></A> = <A HREF="#Programa principal:Main:i"><SPAN CLASS="ident"/>i</SPAN></A> + <SPAN CLASS="cte">1</SPAN>)<br/>{
+<DIV style="padding-left: .5cm"><SPAN CLASS="ident"/>print</SPAN>(<A HREF="#Funciones:add"><SPAN CLASS="ident"/>add</SPAN></A>(<A HREF="#Programa principal:Main:i"><SPAN CLASS="ident"/>i</SPAN></A>, <SPAN CLASS="cte">1</SPAN>));</DIV>
+}</DIV>
+}
 
 <br/>
 </code>
-<A HREF="#Main">Inicio del programa principal</A>
-<A HREF="#inicio">Inicio del programa</A>
+<A HREF="#Programa Principal">Inicio del programa principal</A>
+<A HREF="#inicio">Inicio del programa</A><hr/>
 </html>

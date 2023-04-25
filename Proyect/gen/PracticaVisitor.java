@@ -1,4 +1,7 @@
 // Generated from java-escape by ANTLR 4.11.1
+
+    import java.util.*;
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -136,11 +139,23 @@ public interface PracticaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSent(PracticaParser.SentContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PracticaParser#aux}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAux(PracticaParser.AuxContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PracticaParser#asig}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAsig(PracticaParser.AsigContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PracticaParser#mireturn}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMireturn(PracticaParser.MireturnContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PracticaParser#exp}.
 	 * @param ctx the parse tree

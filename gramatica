@@ -1,0 +1,40 @@
+program ::= dcllist funlist sentlist
+dcllist ::= ʎ | dcllist dcl
+funlist ::= ʎ | funlist funcdef
+sentlist::= mainhead "{" code "}"
+
+dcl ::= ctelist | varlist
+ctelist ::= "#define" CONST_DEF_IDENTIFIER simpvalue | ctelist "#define" CONST_DEF_IDENTIFIER simpvalue
+simpvalue ::= NUMERIC_INTEGER_CONST | NUMERIC_REAL_CONST | STRING_CONST
+varlist ::= vardef ";"| varlist vardef ";"
+vardef ::= tbas IDENTIFIER | tbas IDENTIFIER "=" simpvalue
+tbas ::= "integer" | "float" | "string" | tvoid | struct
+tvoid ::= "void" 
+
+funcdef ::= funchead "{" code "}"
+funchead ::= tbas IDENTIFIER "(" typedef1 ")"
+typedef1 ::= ʎ | typedef2
+typedef2 ::= tbas IDENTIFIER | typedef2 "," tbas IDENTIFIER
+
+mainhead ::= tvoid "Main" "(" typedef1 ")"
+code ::= ʎ | code sent
+sent ::= asig ";" | funccall ";" | vardef ";" | return ";" | if | while | dowhile | for
+
+asig ::= IDENTIFIER "=" exp
+exp ::= exp op exp | factor
+op ::= "+" | "-" | "*" | "DIV" | "MOD"
+factor ::= simpvalue | "(" exp ")" | funccall
+funccall ::= IDENTIFIER subpparamlist | CONST_DEF_IDENTIFIER subpparamlist
+subpparamlist ::= ʎ | "(" explist ")"
+explist ::= exp | exp "," explist
+
+if ::= "if" expcond "{" code "}" else
+else ::= "else" "{" code "}" | "else" if | ʎ ;
+while ::= "while" "(" expcond ")" "{" code "}"
+dowhile ::= "do" "{" code "}" "while" "(" expcond ")" ";"
+for ::= "for" "(" vardef ";" expcond ";" asig ")" "{" code "}" | "for" "(" asig ";" expcond ";" asig ")" "{" code "}"
+expcond ::= expcond oplog expcond | factorcond
+oplog ::= "||" | "&"
+factorcond ::= exp opcomp exp | "(" expcond ")" | "!" factorcond
+opcomp ::= "<" | ">" | "<=" | ">=" | "=="
+struct ::= "struct" "{" varlist "}"

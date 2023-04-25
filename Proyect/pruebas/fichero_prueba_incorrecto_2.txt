@@ -1,0 +1,27 @@
+integer x;
+ string y;
+ #define MAX_VALUE 100
+ float add(float a, float b) {
+  struct {
+   integer age;
+  string name;
+} person;
+   return a b;
+ }
+ void Main) {
+   x = 5;
+   y = "hello";
+   float result;
+   if (x > MAX_VALUE) {
+   if (x + MAX_VALUE) {
+        printf("x is too big");
+      } else {
+        printf("x is within range");
+      }
+     printf("x is too big");
+   } else {
+     printf("x is within range");
+   }
+   result = add(2.5, 3.5);
+   printf("Result: %f", result);
+ }

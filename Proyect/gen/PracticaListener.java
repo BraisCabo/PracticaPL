@@ -1,4 +1,7 @@
 // Generated from java-escape by ANTLR 4.11.1
+
+    import java.util.*;
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -217,6 +220,16 @@ public interface PracticaListener extends ParseTreeListener {
 	 */
 	void exitSent(PracticaParser.SentContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PracticaParser#aux}.
+	 * @param ctx the parse tree
+	 */
+	void enterAux(PracticaParser.AuxContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PracticaParser#aux}.
+	 * @param ctx the parse tree
+	 */
+	void exitAux(PracticaParser.AuxContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PracticaParser#asig}.
 	 * @param ctx the parse tree
 	 */
@@ -226,6 +239,16 @@ public interface PracticaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAsig(PracticaParser.AsigContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PracticaParser#mireturn}.
+	 * @param ctx the parse tree
+	 */
+	void enterMireturn(PracticaParser.MireturnContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PracticaParser#mireturn}.
+	 * @param ctx the parse tree
+	 */
+	void exitMireturn(PracticaParser.MireturnContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PracticaParser#exp}.
 	 * @param ctx the parse tree

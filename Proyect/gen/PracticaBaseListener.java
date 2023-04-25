@@ -1,5 +1,8 @@
 // Generated from java-escape by ANTLR 4.11.1
 
+    import java.util.*;
+
+
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -268,6 +271,18 @@ public class PracticaBaseListener implements PracticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterAux(PracticaParser.AuxContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAux(PracticaParser.AuxContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAsig(PracticaParser.AsigContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -275,6 +290,18 @@ public class PracticaBaseListener implements PracticaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAsig(PracticaParser.AsigContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMireturn(PracticaParser.MireturnContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMireturn(PracticaParser.MireturnContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
