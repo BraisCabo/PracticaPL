@@ -35,7 +35,6 @@ grammar Practica;
     }
 }
 
-
 program:
 	dcllist funlist sentlist {System.out.println("<UL>\n<LI><A HREF=\"#Programa Principal\">Programa Principal</A></LI>\n"+$funlist.headers + "</UL>\n</body>\n<hr/>\n" + $funlist.bodys);
 		                                    System.out.println("<A NAME=\"Programa Principal\"><H2>Programa Principal</H2></A>\n\n<code>\n" + $dcllist.text + "</code>\n<br/>\n");
@@ -53,8 +52,8 @@ funlist
 sentlist
 	returns[String text]:
 	mainhead LBRACE code["Programa principal", "Main"] RBRACE {$text="<A NAME=\"Main\"></A>\n<code>\n"+$mainhead.text+"\n"+  "<br/>" + $LBRACE.text +"\n"+ $code.text + $RBRACE.text +"\n\n<br/>\n</code>\n"+
-"<A HREF=\"#Programa Principal\">Inicio del programa principal</A>\n<A HREF=\"#inicio\">Inicio del programa</A><hr/>";}
-		;
+"<A HREF=\"#Programa Principal\">Inicio del programa principal</A>\n<A HREF=\"#inicio\">Inicio del programa</A><hr/>";
+		};
 
 dcl
 	returns[String text]:
@@ -62,7 +61,8 @@ dcl
 	| varlist["Programa principal", ""] {$text=$varlist.text;};
 ctelist[String bloque, String funcion]
 	returns[String text]:
-	DEFINE CONST_DEF_IDENTIFIER simpvalue {$text= "<SPAN CLASS=\"palres\">" +  $DEFINE.text + "</SPAN> " + addSimbolo($bloque, $funcion, $CONST_DEF_IDENTIFIER.text) + " " + $simpvalue.text;};
+	DEFINE CONST_DEF_IDENTIFIER simpvalue {$text= "<SPAN CLASS=\"palres\">" +  $DEFINE.text + "</SPAN> " + addSimbolo($bloque, $funcion, $CONST_DEF_IDENTIFIER.text) + " " + $simpvalue.text;
+		};
 simpvalue
 	returns[String text]:
 	NUMERIC_INTEGER_CONST {$text = "<SPAN CLASS=\"cte\">" + $NUMERIC_INTEGER_CONST.text + "</SPAN>";
@@ -75,7 +75,8 @@ varlist[String bloque, String funcion]
 		};
 vardef[String bloque, String funcion]
 	returns[String text]:
-	tbas IDENTIFIER vardef2 {$text= $tbas.text + addSimbolo($bloque, $funcion, $IDENTIFIER.text) +  $vardef2.text;};
+	tbas IDENTIFIER vardef2 {$text= $tbas.text + addSimbolo($bloque, $funcion, $IDENTIFIER.text) +  $vardef2.text;
+		};
 vardef2
 	returns[String text]:
 	SASIGN simpvalue {$text= " " + $SASIGN.text  + " " + $simpvalue.text;
@@ -89,11 +90,18 @@ tbas
 	| tvoid {$type=$tvoid.type; $text= $tvoid.text;}
 	| struct {$type=$struct.type; $text= $struct.text;};
 tvoid
-	returns[String type, String text]: VOID {$type="void"; $text= "<SPAN CLASS=\"palres\">" + $VOID.text + "</SPAN> ";};
-struct returns [String type, String text]: STRUCT LBRACE varlist["no",""] varlist2 RBRACE {$text = "<SPAN CLASS=\"palres\">" + $STRUCT.text + "</SPAN> " + "<br/>" + $LBRACE.text +  "\n<DIV style=\"padding-left: 0.5cm\">" + $varlist.text + "</DIV>\n" + $varlist2.text + $RBRACE.text  + "<br/>";
+	returns[String type, String text]:
+	VOID {$type="void"; $text= "<SPAN CLASS=\"palres\">" + $VOID.text + "</SPAN> ";};
+struct
+	returns[String type, String text]:
+	STRUCT LBRACE varlist["no",""] varlist2 RBRACE {$text = "<SPAN CLASS=\"palres\">" + $STRUCT.text + "</SPAN> " + "<br/>" + $LBRACE.text +  "\n<DIV style=\"padding-left: 0.5cm\">" + $varlist.text + "</DIV>\n" + $varlist2.text + $RBRACE.text + " ";
 $type = $STRUCT.text + " " + "<br/>" + $LBRACE.text  + "\n<DIV style=\"padding-left: 0.5cm\">" + $varlist.text + "</DIV>\n" + $varlist2.text  + $RBRACE.text;
 };
-varlist2 returns [String text]: varlist["no",""] varlist2 {$text = "\n<DIV style=\"padding-left: 0.5cm\">" + $varlist.text + "</DIV>\n" + $varlist2.text;} | {$text = "";};
+varlist2
+	returns[String text]:
+	varlist["no",""] varlist2 {$text = "\n<DIV style=\"padding-left: 0.5cm\">" + $varlist.text + "</DIV>\n" + $varlist2.text;
+		}
+	| {$text = "";};
 
 funcdef
 	returns[String body, String header]:
@@ -105,7 +113,8 @@ funcdef
 funchead[String bloque]
 	returns[String name, String text, String header]:
 	tbas IDENTIFIER LPARENTHESIS typedef1[$bloque, $IDENTIFIER.text] RPARENTHESIS {$name = $IDENTIFIER.text; $text = $tbas.text + addSimbolo("Funciones", "", $IDENTIFIER.text) +  $LPARENTHESIS.text + $typedef1.text + $RPARENTHESIS.text;
-		$header= $tbas.type + " " + $IDENTIFIER.text +  $LPARENTHESIS.text + $typedef1.header +  $RPARENTHESIS.text;};
+		$header= $tbas.type + " " + $IDENTIFIER.text +  $LPARENTHESIS.text + $typedef1.header +  $RPARENTHESIS.text;
+		};
 typedef1[String bloque, String funcion]
 	returns[String text, String header]:
 	{$text="";
@@ -129,11 +138,11 @@ mainhead
 code[String bloque, String funcion]
 	returns[String text]:
 	{$text="";}
-	| sent[$bloque, $funcion] code[$bloque, $funcion] {$text= "<DIV style=\"padding-left: .5cm\">" + $sent.text + "</DIV>\n" + $code.text;}
-		;
+	| sent[$bloque, $funcion] code[$bloque, $funcion] {$text= "<DIV style=\"padding-left: .5cm\">" + $sent.text + "</DIV>\n" + $code.text;
+		};
 sent[String bloque, String funcion]
 	returns[String text]:
-	 IDENTIFIER aux[$funcion] SEMICOLON {$text = getSimbolo($funcion, $IDENTIFIER.text) + $aux.text + $SEMICOLON.text;}
+	IDENTIFIER aux[$funcion] SEMICOLON {$text = getSimbolo($funcion, $IDENTIFIER.text) + $aux.text + $SEMICOLON.text;}
 	| CONST_DEF_IDENTIFIER subpparamlist[$funcion] SEMICOLON {$text= getSimbolo($funcion, $CONST_DEF_IDENTIFIER.text) + $subpparamlist.text;}
 	| vardef[$bloque, $funcion] SEMICOLON {$text= $vardef.text + $SEMICOLON.text;}
 	| miif[$bloque, $funcion] {$text= $miif.text;}
@@ -142,14 +151,19 @@ sent[String bloque, String funcion]
 	| midowhile[$bloque, $funcion] {$text=$midowhile.text;}
 	| mireturn[$funcion] SEMICOLON {$text= $mireturn.text + $SEMICOLON.text;};
 
-aux[String funcion] returns [String text] : SASIGN exp[$funcion] {$text=" " + $SASIGN.text + " " + $exp.text;}
-| subpparamlist[$funcion] {$text= $subpparamlist.text;};
+aux[String funcion]
+	returns[String text]:
+	SASIGN exp[$funcion] {$text=" " + $SASIGN.text + " " + $exp.text;}
+	| subpparamlist[$funcion] {$text= $subpparamlist.text;};
 
 asig[String funcion]
 	returns[String text]:
 	IDENTIFIER SASIGN exp[$funcion] {$text =  getSimbolo($funcion, $IDENTIFIER.text) + " " + $SASIGN.text + " " + $exp.text;
 		}; //
-mireturn[String funcion] returns [String text] : RETURN exp[$funcion] {$text= "<SPAN CLASS=\"palres\">" + $RETURN.text + "</SPAN> " + $exp.text;};
+mireturn[String funcion]
+	returns[String text]:
+	RETURN exp[$funcion] {$text= "<SPAN CLASS=\"palres\">" + $RETURN.text + "</SPAN> " + $exp.text;}
+		;
 exp[String funcion]
 	returns[String text]:
 	factor[$funcion] exp1[$funcion] {$text = $factor.text + $exp1.text;};
@@ -191,36 +205,47 @@ explist1[String funcion]
 
 miif[String bloque, String funcion]
 	returns[String text]:
-	IF expcond[$funcion] LBRACE  code[$bloque, $funcion] RBRACE mielse[$bloque, $funcion] {$text ="<SPAN CLASS=\"palres\">" + $IF.text + "</SPAN> " + $expcond.text +
-"\n" + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text + "\n" + "<br/>\n"  + "\n" + $mielse.text;};
+	IF expcond[$funcion] LBRACE code[$bloque, $funcion] RBRACE mielse[$bloque, $funcion] {$text ="<SPAN CLASS=\"palres\">" + $IF.text + "</SPAN> " + $expcond.text +
+"\n" + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text + "\n" + "<br/>\n"  + "\n" + $mielse.text;
+		};
 mielse[String bloque, String funcion]
 	returns[String text]:
-	ELSE  else1[$bloque, $funcion] {$text=  "<SPAN CLASS=\"palres\">" + $ELSE.text + "</SPAN> " + $else1.text + "\n";}
+	ELSE else1[$bloque, $funcion] {$text=  "<SPAN CLASS=\"palres\">" + $ELSE.text + "</SPAN> " + $else1.text + "\n";
+		}
 	| {$text = "";};
 else1[String bloque, String funcion]
 	returns[String text]:
-	LBRACE  code[$bloque, $funcion] RBRACE {$text = "<br/>" + $LBRACE.text + $code.text + $RBRACE.text + "\n" + "<br/>\n"  + "\n";
+	LBRACE code[$bloque, $funcion] RBRACE {$text = "<br/>" + $LBRACE.text + $code.text + $RBRACE.text + "\n" + "<br/>\n"  + "\n";
 		}
 	| miif[$bloque, $funcion] {$text = $miif.text ;};
 miwhile[String bloque, String funcion]
 	returns[String text]:
 	WHILE expcond[$funcion] LBRACE code[$bloque, $funcion] RBRACE {$text ="<SPAN CLASS=\"palres\">" + $WHILE.text + "</SPAN> " + $expcond.text +
-                                     "\n" + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text + "\n" + "<br/>\n"  + "\n";};
+                                     "\n" + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text + "\n" + "<br/>\n"  + "\n";
+		};
 midowhile[String bloque, String funcion]
 	returns[String text]:
-	DO LBRACE code[$bloque, $funcion] RBRACE WHILE expcond[$funcion] SEMICOLON {$text = $text ="<SPAN CLASS=\"palres\">" + $DO.text + "</SPAN>" + "\n" + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text + "\n" + "<SPAN CLASS=\"palres\">" + $WHILE.text + "</SPAN> " + $expcond.text + $SEMICOLON.text;};
+	DO LBRACE code[$bloque, $funcion] RBRACE WHILE expcond[$funcion] SEMICOLON {$text = $text ="<SPAN CLASS=\"palres\">" + $DO.text + "</SPAN>" + "\n" + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text + "\n" + "<SPAN CLASS=\"palres\">" + $WHILE.text + "</SPAN> " + $expcond.text + $SEMICOLON.text;
+		};
 mifor[String bloque, String funcion]
-	returns[String text]: FOR LPARENTHESIS for1[$bloque, $funcion] {$text = $text ="<SPAN CLASS=\"palres\">" + $FOR.text + "</SPAN>" + $LPARENTHESIS.text + $for1.text;};
+	returns[String text]:
+	FOR LPARENTHESIS for1[$bloque, $funcion] {$text = $text ="<SPAN CLASS=\"palres\">" + $FOR.text + "</SPAN>" + $LPARENTHESIS.text + $for1.text;
+		};
 for1[String bloque, String funcion]
 	returns[String text]:
-	vardef[$bloque, $funcion] SEMICOLON expcond[$funcion] SEMICOLON asig[$funcion] RPARENTHESIS LBRACE code[$bloque, $funcion] RBRACE {$text = $vardef.text + $SEMICOLON.text + " " + $expcond.text + $SEMICOLON.text + " " + $asig.text + $RPARENTHESIS.text + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text;}
-	| asig[$funcion] SEMICOLON expcond[$funcion] SEMICOLON asig[$funcion] RPARENTHESIS LBRACE code[$bloque, $funcion] RBRACE {$text = $asig.text + $SEMICOLON.text + " " + $expcond.text + $SEMICOLON.text + " " + $asig.text + $RPARENTHESIS.text + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text;};
+	vardef[$bloque, $funcion] SEMICOLON expcond[$funcion] SEMICOLON asig[$funcion] RPARENTHESIS
+		LBRACE code[$bloque, $funcion] RBRACE {$text = $vardef.text + $SEMICOLON.text + " " + $expcond.text + $SEMICOLON.text + " " + $asig.text + $RPARENTHESIS.text + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text;
+		}
+	| asig[$funcion] SEMICOLON expcond[$funcion] SEMICOLON asig[$funcion] RPARENTHESIS LBRACE code[$bloque, $funcion]
+		RBRACE {$text = $asig.text + $SEMICOLON.text + " " + $expcond.text + $SEMICOLON.text + " " + $asig.text + $RPARENTHESIS.text + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text;
+		};
 expcond[String funcion]
 	returns[String text]:
 	factorcond[$funcion] expcond_tail[$funcion] {$text= $factorcond.text + $expcond_tail.text;};
 expcond_tail[String funcion]
 	returns[String text]:
-	oplog factorcond[$funcion] expcond_tail[$funcion] {$text = $oplog.text + $factorcond.text + $expcond_tail.text;}
+	oplog factorcond[$funcion] expcond_tail[$funcion] {$text = $oplog.text + $factorcond.text + $expcond_tail.text;
+		}
 	| {$text = "";};
 oplog
 	returns[String text]:
@@ -231,8 +256,8 @@ factorcond[String funcion]
 	e1 = exp[$funcion] opcomp e2 = exp[$funcion] {$text = $e1.text + $opcomp.text + $e2.text;}
 	| LPARENTHESIS expcond[$funcion] RPARENTHESIS {$text = $LPARENTHESIS.text + $expcond.text + $RPARENTHESIS.text;
 		}
-	| NOT factorcond[$funcion] {$text = "<SPAN CLASS=\"palres\">" + $NOT.text + "</SPAN>" + $factorcond.text;}
-		;
+	| NOT factorcond[$funcion] {$text = "<SPAN CLASS=\"palres\">" + $NOT.text + "</SPAN>" + $factorcond.text;
+		};
 opcomp
 	returns[String text]:
 	SMORE {$text = " " + $SMORE.text + " ";}

@@ -397,6 +397,7 @@ public class PracticaParser extends Parser {
 			((SentlistContext)_localctx).RBRACE = match(RBRACE);
 			((SentlistContext)_localctx).text = "<A NAME=\"Main\"></A>\n<code>\n"+((SentlistContext)_localctx).mainhead.text+"\n"+  "<br/>" + (((SentlistContext)_localctx).LBRACE!=null?((SentlistContext)_localctx).LBRACE.getText():null) +"\n"+ ((SentlistContext)_localctx).code.text + (((SentlistContext)_localctx).RBRACE!=null?((SentlistContext)_localctx).RBRACE.getText():null) +"\n\n<br/>\n</code>\n"+
 			"<A HREF=\"#Programa Principal\">Inicio del programa principal</A>\n<A HREF=\"#inicio\">Inicio del programa</A><hr/>";
+					
 			}
 		}
 		catch (RecognitionException re) {
@@ -530,6 +531,7 @@ public class PracticaParser extends Parser {
 			setState(123);
 			((CtelistContext)_localctx).simpvalue = simpvalue();
 			((CtelistContext)_localctx).text =  "<SPAN CLASS=\"palres\">" +  (((CtelistContext)_localctx).DEFINE!=null?((CtelistContext)_localctx).DEFINE.getText():null) + "</SPAN> " + addSimbolo(_localctx.bloque, _localctx.funcion, (((CtelistContext)_localctx).CONST_DEF_IDENTIFIER!=null?((CtelistContext)_localctx).CONST_DEF_IDENTIFIER.getText():null)) + " " + ((CtelistContext)_localctx).simpvalue.text;
+					
 			}
 		}
 		catch (RecognitionException re) {
@@ -726,6 +728,7 @@ public class PracticaParser extends Parser {
 			setState(140);
 			((VardefContext)_localctx).vardef2 = vardef2();
 			((VardefContext)_localctx).text =  ((VardefContext)_localctx).tbas.text + addSimbolo(_localctx.bloque, _localctx.funcion, (((VardefContext)_localctx).IDENTIFIER!=null?((VardefContext)_localctx).IDENTIFIER.getText():null)) +  ((VardefContext)_localctx).vardef2.text;
+					
 			}
 		}
 		catch (RecognitionException re) {
@@ -1002,7 +1005,7 @@ public class PracticaParser extends Parser {
 			((StructContext)_localctx).varlist2 = varlist2();
 			setState(171);
 			((StructContext)_localctx).RBRACE = match(RBRACE);
-			((StructContext)_localctx).text =  "<SPAN CLASS=\"palres\">" + (((StructContext)_localctx).STRUCT!=null?((StructContext)_localctx).STRUCT.getText():null) + "</SPAN> " + "<br/>" + (((StructContext)_localctx).LBRACE!=null?((StructContext)_localctx).LBRACE.getText():null) +  "\n<DIV style=\"padding-left: 0.5cm\">" + ((StructContext)_localctx).varlist.text + "</DIV>\n" + ((StructContext)_localctx).varlist2.text + (((StructContext)_localctx).RBRACE!=null?((StructContext)_localctx).RBRACE.getText():null)  + "<br/>";
+			((StructContext)_localctx).text =  "<SPAN CLASS=\"palres\">" + (((StructContext)_localctx).STRUCT!=null?((StructContext)_localctx).STRUCT.getText():null) + "</SPAN> " + "<br/>" + (((StructContext)_localctx).LBRACE!=null?((StructContext)_localctx).LBRACE.getText():null) +  "\n<DIV style=\"padding-left: 0.5cm\">" + ((StructContext)_localctx).varlist.text + "</DIV>\n" + ((StructContext)_localctx).varlist2.text + (((StructContext)_localctx).RBRACE!=null?((StructContext)_localctx).RBRACE.getText():null) + " ";
 			((StructContext)_localctx).type =  (((StructContext)_localctx).STRUCT!=null?((StructContext)_localctx).STRUCT.getText():null) + " " + "<br/>" + (((StructContext)_localctx).LBRACE!=null?((StructContext)_localctx).LBRACE.getText():null)  + "\n<DIV style=\"padding-left: 0.5cm\">" + ((StructContext)_localctx).varlist.text + "</DIV>\n" + ((StructContext)_localctx).varlist2.text  + (((StructContext)_localctx).RBRACE!=null?((StructContext)_localctx).RBRACE.getText():null);
 
 			}
@@ -1067,6 +1070,7 @@ public class PracticaParser extends Parser {
 				setState(175);
 				((Varlist2Context)_localctx).varlist2 = varlist2();
 				((Varlist2Context)_localctx).text =  "\n<DIV style=\"padding-left: 0.5cm\">" + ((Varlist2Context)_localctx).varlist.text + "</DIV>\n" + ((Varlist2Context)_localctx).varlist2.text;
+						
 				}
 				break;
 			case RBRACE:
@@ -1216,6 +1220,7 @@ public class PracticaParser extends Parser {
 			((FuncheadContext)_localctx).RPARENTHESIS = match(RPARENTHESIS);
 			((FuncheadContext)_localctx).name =  (((FuncheadContext)_localctx).IDENTIFIER!=null?((FuncheadContext)_localctx).IDENTIFIER.getText():null); ((FuncheadContext)_localctx).text =  ((FuncheadContext)_localctx).tbas.text + addSimbolo("Funciones", "", (((FuncheadContext)_localctx).IDENTIFIER!=null?((FuncheadContext)_localctx).IDENTIFIER.getText():null)) +  (((FuncheadContext)_localctx).LPARENTHESIS!=null?((FuncheadContext)_localctx).LPARENTHESIS.getText():null) + ((FuncheadContext)_localctx).typedef1.text + (((FuncheadContext)_localctx).RPARENTHESIS!=null?((FuncheadContext)_localctx).RPARENTHESIS.getText():null);
 					((FuncheadContext)_localctx).header =  ((FuncheadContext)_localctx).tbas.type + " " + (((FuncheadContext)_localctx).IDENTIFIER!=null?((FuncheadContext)_localctx).IDENTIFIER.getText():null) +  (((FuncheadContext)_localctx).LPARENTHESIS!=null?((FuncheadContext)_localctx).LPARENTHESIS.getText():null) + ((FuncheadContext)_localctx).typedef1.header +  (((FuncheadContext)_localctx).RPARENTHESIS!=null?((FuncheadContext)_localctx).RPARENTHESIS.getText():null);
+					
 			}
 		}
 		catch (RecognitionException re) {
@@ -1532,6 +1537,7 @@ public class PracticaParser extends Parser {
 				setState(220);
 				((CodeContext)_localctx).code = code(_localctx.bloque, _localctx.funcion);
 				((CodeContext)_localctx).text =  "<DIV style=\"padding-left: .5cm\">" + ((CodeContext)_localctx).sent.text + "</DIV>\n" + ((CodeContext)_localctx).code.text;
+						
 				}
 				break;
 			default:
@@ -2601,6 +2607,7 @@ public class PracticaParser extends Parser {
 			((MiifContext)_localctx).mielse = mielse(_localctx.bloque, _localctx.funcion);
 			((MiifContext)_localctx).text = "<SPAN CLASS=\"palres\">" + (((MiifContext)_localctx).IF!=null?((MiifContext)_localctx).IF.getText():null) + "</SPAN> " + ((MiifContext)_localctx).expcond.text +
 			"\n" + "<br/>" + (((MiifContext)_localctx).LBRACE!=null?((MiifContext)_localctx).LBRACE.getText():null) +  "\n" + ((MiifContext)_localctx).code.text + (((MiifContext)_localctx).RBRACE!=null?((MiifContext)_localctx).RBRACE.getText():null) + "\n" + "<br/>\n"  + "\n" + ((MiifContext)_localctx).mielse.text;
+					
 			}
 		}
 		catch (RecognitionException re) {
@@ -2662,6 +2669,7 @@ public class PracticaParser extends Parser {
 				setState(350);
 				((MielseContext)_localctx).else1 = else1(_localctx.bloque, _localctx.funcion);
 				((MielseContext)_localctx).text =   "<SPAN CLASS=\"palres\">" + (((MielseContext)_localctx).ELSE!=null?((MielseContext)_localctx).ELSE.getText():null) + "</SPAN> " + ((MielseContext)_localctx).else1.text + "\n";
+						
 				}
 				break;
 			case RBRACE:
@@ -2838,6 +2846,7 @@ public class PracticaParser extends Parser {
 			((MiwhileContext)_localctx).RBRACE = match(RBRACE);
 			((MiwhileContext)_localctx).text = "<SPAN CLASS=\"palres\">" + (((MiwhileContext)_localctx).WHILE!=null?((MiwhileContext)_localctx).WHILE.getText():null) + "</SPAN> " + ((MiwhileContext)_localctx).expcond.text +
 			                                     "\n" + "<br/>" + (((MiwhileContext)_localctx).LBRACE!=null?((MiwhileContext)_localctx).LBRACE.getText():null) +  "\n" + ((MiwhileContext)_localctx).code.text + (((MiwhileContext)_localctx).RBRACE!=null?((MiwhileContext)_localctx).RBRACE.getText():null) + "\n" + "<br/>\n"  + "\n";
+					
 			}
 		}
 		catch (RecognitionException re) {
@@ -2917,6 +2926,7 @@ public class PracticaParser extends Parser {
 			setState(379);
 			((MidowhileContext)_localctx).SEMICOLON = match(SEMICOLON);
 			((MidowhileContext)_localctx).text =  _localctx.text ="<SPAN CLASS=\"palres\">" + (((MidowhileContext)_localctx).DO!=null?((MidowhileContext)_localctx).DO.getText():null) + "</SPAN>" + "\n" + "<br/>" + (((MidowhileContext)_localctx).LBRACE!=null?((MidowhileContext)_localctx).LBRACE.getText():null) +  "\n" + ((MidowhileContext)_localctx).code.text + (((MidowhileContext)_localctx).RBRACE!=null?((MidowhileContext)_localctx).RBRACE.getText():null) + "\n" + "<SPAN CLASS=\"palres\">" + (((MidowhileContext)_localctx).WHILE!=null?((MidowhileContext)_localctx).WHILE.getText():null) + "</SPAN> " + ((MidowhileContext)_localctx).expcond.text + (((MidowhileContext)_localctx).SEMICOLON!=null?((MidowhileContext)_localctx).SEMICOLON.getText():null);
+					
 			}
 		}
 		catch (RecognitionException re) {
@@ -2978,6 +2988,7 @@ public class PracticaParser extends Parser {
 			setState(384);
 			((MiforContext)_localctx).for1 = for1(_localctx.bloque, _localctx.funcion);
 			((MiforContext)_localctx).text =  _localctx.text ="<SPAN CLASS=\"palres\">" + (((MiforContext)_localctx).FOR!=null?((MiforContext)_localctx).FOR.getText():null) + "</SPAN>" + (((MiforContext)_localctx).LPARENTHESIS!=null?((MiforContext)_localctx).LPARENTHESIS.getText():null) + ((MiforContext)_localctx).for1.text;
+					
 			}
 		}
 		catch (RecognitionException re) {
@@ -3081,6 +3092,7 @@ public class PracticaParser extends Parser {
 				setState(395);
 				((For1Context)_localctx).RBRACE = match(RBRACE);
 				((For1Context)_localctx).text =  ((For1Context)_localctx).vardef.text + (((For1Context)_localctx).SEMICOLON!=null?((For1Context)_localctx).SEMICOLON.getText():null) + " " + ((For1Context)_localctx).expcond.text + (((For1Context)_localctx).SEMICOLON!=null?((For1Context)_localctx).SEMICOLON.getText():null) + " " + ((For1Context)_localctx).asig.text + (((For1Context)_localctx).RPARENTHESIS!=null?((For1Context)_localctx).RPARENTHESIS.getText():null) + "<br/>" + (((For1Context)_localctx).LBRACE!=null?((For1Context)_localctx).LBRACE.getText():null) +  "\n" + ((For1Context)_localctx).code.text + (((For1Context)_localctx).RBRACE!=null?((For1Context)_localctx).RBRACE.getText():null);
+						
 				}
 				break;
 			case IDENTIFIER:
@@ -3105,6 +3117,7 @@ public class PracticaParser extends Parser {
 				setState(406);
 				((For1Context)_localctx).RBRACE = match(RBRACE);
 				((For1Context)_localctx).text =  ((For1Context)_localctx).asig.text + (((For1Context)_localctx).SEMICOLON!=null?((For1Context)_localctx).SEMICOLON.getText():null) + " " + ((For1Context)_localctx).expcond.text + (((For1Context)_localctx).SEMICOLON!=null?((For1Context)_localctx).SEMICOLON.getText():null) + " " + ((For1Context)_localctx).asig.text + (((For1Context)_localctx).RPARENTHESIS!=null?((For1Context)_localctx).RPARENTHESIS.getText():null) + "<br/>" + (((For1Context)_localctx).LBRACE!=null?((For1Context)_localctx).LBRACE.getText():null) +  "\n" + ((For1Context)_localctx).code.text + (((For1Context)_localctx).RBRACE!=null?((For1Context)_localctx).RBRACE.getText():null);
+						
 				}
 				break;
 			default:
@@ -3234,6 +3247,7 @@ public class PracticaParser extends Parser {
 				setState(417);
 				((Expcond_tailContext)_localctx).expcond_tail = expcond_tail(_localctx.funcion);
 				((Expcond_tailContext)_localctx).text =  ((Expcond_tailContext)_localctx).oplog.text + ((Expcond_tailContext)_localctx).factorcond.text + ((Expcond_tailContext)_localctx).expcond_tail.text;
+						
 				}
 				break;
 			case LBRACE:
@@ -3414,6 +3428,7 @@ public class PracticaParser extends Parser {
 				setState(440);
 				((FactorcondContext)_localctx).factorcond = factorcond(_localctx.funcion);
 				((FactorcondContext)_localctx).text =  "<SPAN CLASS=\"palres\">" + (((FactorcondContext)_localctx).NOT!=null?((FactorcondContext)_localctx).NOT.getText():null) + "</SPAN>" + ((FactorcondContext)_localctx).factorcond.text;
+						
 				}
 				break;
 			}

@@ -29,11 +29,11 @@ void Main() {
   string c = "Hola";
   var1 = a;
   var2 = b * var1;
-  personage = 25;
-  personname = "Juan";
+  integer person_age = 25;
+  string person_name = "Juan";
   if (var1 > MAX_VALUE) {
     print(MESSAGE);
-  } else if (hola == adios) {
+  } else if (a == b) {
     print("Var1 is less than or equal to max value.");
   }else{
     a = b;

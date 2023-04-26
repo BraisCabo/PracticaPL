@@ -94,7 +94,7 @@ tvoid
 	VOID {$type="void"; $text= "<SPAN CLASS=\"palres\">" + $VOID.text + "</SPAN> ";};
 struct
 	returns[String type, String text]:
-	STRUCT LBRACE varlist["no",""] varlist2 RBRACE {$text = "<SPAN CLASS=\"palres\">" + $STRUCT.text + "</SPAN> " + "<br/>" + $LBRACE.text +  "\n<DIV style=\"padding-left: 0.5cm\">" + $varlist.text + "</DIV>\n" + $varlist2.text + $RBRACE.text  + "<br/>";
+	STRUCT LBRACE varlist["no",""] varlist2 RBRACE {$text = "<SPAN CLASS=\"palres\">" + $STRUCT.text + "</SPAN> " + "<br/>" + $LBRACE.text +  "\n<DIV style=\"padding-left: 0.5cm\">" + $varlist.text + "</DIV>\n" + $varlist2.text + $RBRACE.text + " ";
 $type = $STRUCT.text + " " + "<br/>" + $LBRACE.text  + "\n<DIV style=\"padding-left: 0.5cm\">" + $varlist.text + "</DIV>\n" + $varlist2.text  + $RBRACE.text;
 };
 varlist2

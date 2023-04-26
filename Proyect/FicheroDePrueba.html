@@ -16,18 +16,55 @@
 
 <UL>
 <LI><A HREF="#Programa Principal">Programa Principal</A></LI>
-<LI><A HREF="#Funciones:add">integer add(integer x, integer y)</A></LI>
+<LI><A HREF="#Funciones:multiplicar">float multiplicar(float e, float f)</A></LI>
+<LI><A HREF="#Funciones:sumar">integer sumar(integer e, integer f)</A></LI>
+<LI><A HREF="#Funciones:imprimir">void imprimir(string mensaje)</A></LI>
+<LI><A HREF="#Funciones:concatenar">string concatenar(string e, string f)</A></LI>
 </UL>
 </body>
 <hr/>
 <code>
-<SPAN CLASS="palres">integer</SPAN> <A NAME="Funciones:add"><SPAN CLASS="ident"/>add</SPAN></A>(<SPAN CLASS="palres">integer</SPAN> <A NAME="Funciones:add:x"><SPAN CLASS="ident"/>x</SPAN></A>,<SPAN CLASS="palres">integer</SPAN> <A NAME="Funciones:add:y"><SPAN CLASS="ident"/>y</SPAN></A>)
+<SPAN CLASS="palres">float</SPAN> <A NAME="Funciones:multiplicar"><SPAN CLASS="ident"/>multiplicar</SPAN></A>(<SPAN CLASS="palres">float</SPAN> <A NAME="Funciones:multiplicar:e"><SPAN CLASS="ident"/>e</SPAN></A>,<SPAN CLASS="palres">float</SPAN> <A NAME="Funciones:multiplicar:f"><SPAN CLASS="ident"/>f</SPAN></A>)
 <br/>{
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">return</SPAN> (<A HREF="#Funciones:add:x"><SPAN CLASS="ident"/>x</SPAN></A> + <A HREF="#Funciones:add:y"><SPAN CLASS="ident"/>y</SPAN></A>);</DIV>
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">return</SPAN> (<A HREF="#Funciones:multiplicar:e"><SPAN CLASS="ident"/>e</SPAN></A> * <A HREF="#Funciones:multiplicar:f"><SPAN CLASS="ident"/>f</SPAN></A>);</DIV>
 }
 <br/>
 </code>
-<A HREF="#Funciones:add">Inicio de la función</A>
+<A HREF="#Funciones:multiplicar">Inicio de la función</A>
+<A HREF="#inicio">Inicio del programa</A>
+<hr/>
+
+<code>
+<SPAN CLASS="palres">integer</SPAN> <A NAME="Funciones:sumar"><SPAN CLASS="ident"/>sumar</SPAN></A>(<SPAN CLASS="palres">integer</SPAN> <A NAME="Funciones:sumar:e"><SPAN CLASS="ident"/>e</SPAN></A>,<SPAN CLASS="palres">integer</SPAN> <A NAME="Funciones:sumar:f"><SPAN CLASS="ident"/>f</SPAN></A>)
+<br/>{
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">return</SPAN> (<A HREF="#Funciones:sumar:e"><SPAN CLASS="ident"/>e</SPAN></A> + <A HREF="#Funciones:sumar:f"><SPAN CLASS="ident"/>f</SPAN></A><missing ')'>;</DIV>
+}
+<br/>
+</code>
+<A HREF="#Funciones:sumar">Inicio de la función</A>
+<A HREF="#inicio">Inicio del programa</A>
+<hr/>
+
+<code>
+<SPAN CLASS="palres">void</SPAN> <A NAME="Funciones:imprimir"><SPAN CLASS="ident"/>imprimir</SPAN></A>(<SPAN CLASS="palres">string</SPAN> <A NAME="Funciones:imprimir:mensaje"><SPAN CLASS="ident"/>mensaje</SPAN></A>)
+<br/>{
+<DIV style="padding-left: .5cm"><SPAN CLASS="ident"/>print</SPAN>null<missing ';'></DIV>
+<DIV style="padding-left: .5cm"><A HREF="#Funciones:imprimir:mensaje"><SPAN CLASS="ident"/>mensaje</SPAN></A>null;</DIV>
+}
+<br/>
+</code>
+<A HREF="#Funciones:imprimir">Inicio de la función</A>
+<A HREF="#inicio">Inicio del programa</A>
+<hr/>
+
+<code>
+<SPAN CLASS="palres">string</SPAN> <A NAME="Funciones:concatenar"><SPAN CLASS="ident"/>concatenar</SPAN></A>(<SPAN CLASS="palres">string</SPAN> <A NAME="Funciones:concatenar:e"><SPAN CLASS="ident"/>e</SPAN></A>,<SPAN CLASS="palres">string</SPAN> <A NAME="Funciones:concatenar:f"><SPAN CLASS="ident"/>f</SPAN></A>)
+<br/>{
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">return</SPAN> (<A HREF="#Funciones:concatenar:e"><SPAN CLASS="ident"/>e</SPAN></A> + <A HREF="#Funciones:concatenar:f"><SPAN CLASS="ident"/>f</SPAN></A>);</DIV>
+}
+<br/>
+</code>
+<A HREF="#Funciones:concatenar">Inicio de la función</A>
 <A HREF="#inicio">Inicio del programa</A>
 <hr/>
 
@@ -35,15 +72,12 @@
 <A NAME="Programa Principal"><H2>Programa Principal</H2></A>
 
 <code>
-<DIV><SPAN CLASS="palres">integer</SPAN> <A NAME="Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A>;</DIV>
-<DIV><SPAN CLASS="palres">float</SPAN> <A NAME="Programa principal:var2"><SPAN CLASS="ident"/>var2</SPAN></A> = <SPAN CLASS="cte">3.14</SPAN>;</DIV>
-<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="Programa principal:MAX_VALUE"><SPAN CLASS="ident"/>MAX_VALUE</SPAN></A> <SPAN CLASS="cte">100</SPAN></DIV>
-<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="Programa principal:MESSAGE"><SPAN CLASS="ident"/>MESSAGE</SPAN></A> <SPAN CLASS="cte">"Hello world!"</SPAN></DIV>
-<DIV><SPAN CLASS="palres">struct</SPAN> <br/>{
-<DIV style="padding-left: 0.5cm"><SPAN CLASS="palres">integer</SPAN> <SPAN CLASS="ident"/>age</SPAN>;</DIV>
-
-<DIV style="padding-left: 0.5cm"><SPAN CLASS="palres">string</SPAN> <SPAN CLASS="ident"/>name</SPAN>;</DIV>
-}<br/><A NAME="Programa principal:person"><SPAN CLASS="ident"/>person</SPAN></A>;</DIV>
+<DIV><SPAN CLASS="palres">integer</SPAN> <A NAME="Programa principal:a"><SPAN CLASS="ident"/>a</SPAN></A>;</DIV>
+<DIV><SPAN CLASS="palres">integer</SPAN> <A NAME="Programa principal:b"><SPAN CLASS="ident"/>b</SPAN></A> = <SPAN CLASS="cte">10</SPAN>;</DIV>
+<DIV><SPAN CLASS="palres">float</SPAN> <A NAME="Programa principal:c"><SPAN CLASS="ident"/>c</SPAN></A>;</DIV>
+<DIV><SPAN CLASS="palres">string</SPAN> <A NAME="Programa principal:s"><SPAN CLASS="ident"/>s</SPAN></A> = <SPAN CLASS="cte">"Hola mundo"</SPAN>;</DIV>
+<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="Programa principal:PI"><SPAN CLASS="ident"/>PI</SPAN></A> <SPAN CLASS="cte">3.1416</SPAN></DIV>
+<DIV><SPAN CLASS="palres">#define</SPAN> <A NAME="Programa principal:MAX_INT"><SPAN CLASS="ident"/>MAX_INT</SPAN></A> <SPAN CLASS="cte">2147483647</SPAN></DIV>
 </code>
 <br/>
 
@@ -51,48 +85,32 @@
 <code>
 <SPAN CLASS="palres">void</SPAN> <A NAME="Programa principal:Main"><SPAN CLASS="ident"/>Main</SPAN></A>()
 <br/>{
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">integer</SPAN> <A NAME="Programa principal:Main:a"><SPAN CLASS="ident"/>a</SPAN></A> = <SPAN CLASS="cte">10</SPAN>;</DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">float</SPAN> <A NAME="Programa principal:Main:b"><SPAN CLASS="ident"/>b</SPAN></A> = <SPAN CLASS="cte">2.5000</SPAN>;</DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">string</SPAN> <A NAME="Programa principal:Main:c"><SPAN CLASS="ident"/>c</SPAN></A> = <SPAN CLASS="cte">"Hola"</SPAN>;</DIV>
-<DIV style="padding-left: .5cm"><A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A> = <A HREF="#Programa principal:Main:a"><SPAN CLASS="ident"/>a</SPAN></A>;</DIV>
-<DIV style="padding-left: .5cm"><A HREF="#Programa principal:var2"><SPAN CLASS="ident"/>var2</SPAN></A> = <A HREF="#Programa principal:Main:b"><SPAN CLASS="ident"/>b</SPAN></A> * <A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A>;</DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident"/>personage</SPAN> = <SPAN CLASS="cte">25</SPAN>;</DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident"/>personname</SPAN> = <SPAN CLASS="cte">"Juan"</SPAN>;</DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">if</SPAN> (<A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A> > <A HREF="#Programa principal:MAX_VALUE"><SPAN CLASS="ident"/>MAX_VALUE</SPAN></A>)
+<DIV style="padding-left: .5cm"><A HREF="#Programa principal:a"><SPAN CLASS="ident"/>a</SPAN></A> = <A HREF="#Programa principal:b"><SPAN CLASS="ident"/>b</SPAN></A> * <SPAN CLASS="cte">2</SPAN>;</DIV>
+<DIV style="padding-left: .5cm"><A HREF="#Programa principal:c"><SPAN CLASS="ident"/>c</SPAN></A> = <A HREF="#Programa principal:a"><SPAN CLASS="ident"/>a</SPAN></A> DIV <A HREF="#Programa principal:PI"><SPAN CLASS="ident"/>PI</SPAN></A>;</DIV>
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">string</SPAN> <A NAME="Programa principal:Main:mensaje"><SPAN CLASS="ident"/>mensaje</SPAN></A> = <SPAN CLASS="cte">"El valor de c es: "</SPAN>;</DIV>
+<DIV style="padding-left: .5cm"><A HREF="#Programa principal:Main:mensaje"><SPAN CLASS="ident"/>mensaje</SPAN></A> = <A HREF="#Programa principal:Main:mensaje"><SPAN CLASS="ident"/>mensaje</SPAN></A> + <A HREF="#Programa principal:c"><SPAN CLASS="ident"/>c</SPAN></A>;</DIV>
+<DIV style="padding-left: .5cm"><A HREF="#Funciones:imprimir"><SPAN CLASS="ident"/>imprimir</SPAN></A>(<A HREF="#Programa principal:Main:mensaje"><SPAN CLASS="ident"/>mensaje</SPAN></A>);</DIV>
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">if</SPAN> (<A HREF="#Programa principal:a"><SPAN CLASS="ident"/>a</SPAN></A> > <A HREF="#Programa principal:MAX_INT"><SPAN CLASS="ident"/>MAX_INT</SPAN></A>)
 <br/>{
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident"/>print</SPAN>(<A HREF="#Programa principal:MESSAGE"><SPAN CLASS="ident"/>MESSAGE</SPAN></A>);</DIV>
+<DIV style="padding-left: .5cm"><A HREF="#Funciones:imprimir"><SPAN CLASS="ident"/>imprimir</SPAN></A>(<SPAN CLASS="cte">"El valor de a supera el máximo permitido"</SPAN>);</DIV>
 }
 <br/>
 
-<SPAN CLASS="palres">else</SPAN> <SPAN CLASS="palres">if</SPAN> (<SPAN CLASS="ident"/>hola</SPAN> == <SPAN CLASS="ident"/>adios</SPAN>)
-<br/>{
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident"/>print</SPAN>(<SPAN CLASS="cte">"Var1 is less than or equal to max value."</SPAN>);</DIV>
+<SPAN CLASS="palres">else</SPAN> <br/>{<DIV style="padding-left: .5cm"><A HREF="#Funciones:imprimir"><SPAN CLASS="ident"/>imprimir</SPAN></A>(<SPAN CLASS="cte">"El valor de a es válido"</SPAN>);</DIV>
 }
 <br/>
-
-<SPAN CLASS="palres">else</SPAN> <br/>{<DIV style="padding-left: .5cm"><A HREF="#Programa principal:Main:a"><SPAN CLASS="ident"/>a</SPAN></A> = <A HREF="#Programa principal:Main:b"><SPAN CLASS="ident"/>b</SPAN></A>;</DIV>
-}
-<br/>
-
 
 
 </DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">while</SPAN> (<A HREF="#Programa principal:var2"><SPAN CLASS="ident"/>var2</SPAN></A> < <SPAN CLASS="cte">10.0</SPAN>)
+<DIV style="padding-left: .5cm"><SPAN CLASS="palres">while</SPAN> (<A HREF="#Programa principal:c"><SPAN CLASS="ident"/>c</SPAN></A> < <SPAN CLASS="cte">100</SPAN>)
 <br/>{
-<DIV style="padding-left: .5cm"><A HREF="#Programa principal:var2"><SPAN CLASS="ident"/>var2</SPAN></A> = <A HREF="#Programa principal:var2"><SPAN CLASS="ident"/>var2</SPAN></A> + <SPAN CLASS="cte">1.0</SPAN>;</DIV>
+<DIV style="padding-left: .5cm"><A HREF="#Programa principal:c"><SPAN CLASS="ident"/>c</SPAN></A> = <A HREF="#Programa principal:c"><SPAN CLASS="ident"/>c</SPAN></A> + <SPAN CLASS="cte">10</SPAN>;</DIV>
+<DIV style="padding-left: .5cm"><A HREF="#Funciones:imprimir"><SPAN CLASS="ident"/>imprimir</SPAN></A>(<SPAN CLASS="cte">"El valor de c es: "</SPAN> + <A HREF="#Programa principal:c"><SPAN CLASS="ident"/>c</SPAN></A>);</DIV>
 }
 <br/>
 
 </DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">do</SPAN>
-<br/>{
-<DIV style="padding-left: .5cm"><A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A> = <A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A> - <SPAN CLASS="cte">1</SPAN>;</DIV>
-}
-<SPAN CLASS="palres">while</SPAN> (<A HREF="#Programa principal:var1"><SPAN CLASS="ident"/>var1</SPAN></A> > <SPAN CLASS="cte">0</SPAN>);</DIV>
-<DIV style="padding-left: .5cm"><SPAN CLASS="palres">for</SPAN>(<SPAN CLASS="palres">integer</SPAN> <A NAME="Programa principal:Main:i"><SPAN CLASS="ident"/>i</SPAN></A> = <SPAN CLASS="cte">0</SPAN>; <A HREF="#Programa principal:Main:i"><SPAN CLASS="ident"/>i</SPAN></A> < <SPAN CLASS="cte">5</SPAN>; <A HREF="#Programa principal:Main:i"><SPAN CLASS="ident"/>i</SPAN></A> = <A HREF="#Programa principal:Main:i"><SPAN CLASS="ident"/>i</SPAN></A> + <SPAN CLASS="cte">1</SPAN>)<br/>{
-<DIV style="padding-left: .5cm"><SPAN CLASS="ident"/>print</SPAN>(<A HREF="#Funciones:add"><SPAN CLASS="ident"/>add</SPAN></A>(<A HREF="#Programa principal:Main:i"><SPAN CLASS="ident"/>i</SPAN></A>, <SPAN CLASS="cte">1</SPAN>));</DIV>
-}</DIV>
-}
+null<missing '}'>
 
 <br/>
 </code>
