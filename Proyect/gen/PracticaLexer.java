@@ -1,7 +1,4 @@
 // Generated from java-escape by ANTLR 4.11.1
-
-    import java.util.*;
-
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -103,33 +100,6 @@ public class PracticaLexer extends Lexer {
 	public Vocabulary getVocabulary() {
 		return VOCABULARY;
 	}
-
-
-
-	    HashMap<String, String> tablaSimbolos = new HashMap<>();
-
-	       public String addSimbolo(String bloque, String funcion, String nombre){
-	           if (!bloque.equals("no")){
-	               if (funcion.equals("")){
-	                   tablaSimbolos.put(nombre, bloque+":"+nombre);
-	                   return "<A NAME=\""+ bloque+":"+nombre + "\">" + "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN></A>";
-	               }else{
-	                   tablaSimbolos.put(funcion+":"+nombre, bloque+":"+funcion+":"+nombre);
-	                   return "<A NAME=\""+ bloque+":"+funcion+":"+nombre + "\">" + "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN></A>";
-	               }}
-	           return "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN>";
-	       }
-
-	   public String getSimbolo(String funcion, String nombre){
-	        if (tablaSimbolos.containsKey(funcion+":"+nombre)){
-	            return "<A HREF=\"#" + tablaSimbolos.get(funcion+":"+nombre) + "\">" + "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN></A>";
-	        }else if (tablaSimbolos.containsKey(nombre)){
-	            return "<A HREF=\"#" + tablaSimbolos.get(nombre) + "\">" + "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN></A>";
-	        }else{
-	            return "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN>";
-	        }
-
-	    }
 
 
 	public PracticaLexer(CharStream input) {

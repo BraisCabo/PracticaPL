@@ -122,6 +122,8 @@ public class PracticaParser extends Parser {
 
 
 	    HashMap<String, String> tablaSimbolos = new HashMap<>();
+	    HashMap<String, Integer> contados = new HashMap<>();
+	    int count = 0;
 
 	       public String addSimbolo(String bloque, String funcion, String nombre){
 	           if (!bloque.equals("no")){
@@ -135,16 +137,27 @@ public class PracticaParser extends Parser {
 	           return "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN>";
 	       }
 
-	   public String getSimbolo(String funcion, String nombre){
+	    public String getSimbolo(String funcion, String nombre){
 	        if (tablaSimbolos.containsKey(funcion+":"+nombre)){
 	            return "<A HREF=\"#" + tablaSimbolos.get(funcion+":"+nombre) + "\">" + "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN></A>";
 	        }else if (tablaSimbolos.containsKey(nombre)){
 	            return "<A HREF=\"#" + tablaSimbolos.get(nombre) + "\">" + "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN></A>";
 	        }else{
-	            return "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN>";
+	            if (funcion.lastIndexOf(":") == -1){
+	                return "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN>";
+	            }
+	            else{
+	                return getSimbolo(funcion.substring(0, funcion.lastIndexOf(":")), nombre);
+	            }
 	        }
-
 	    }
+
+	    public String getCount(){
+	    count++;
+	    return Integer.toString(count);
+	    }
+
+
 
 	public PracticaParser(TokenStream input) {
 		super(input);
@@ -1669,7 +1682,7 @@ public class PracticaParser extends Parser {
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(239);
-				((SentContext)_localctx).miif = miif(_localctx.bloque, _localctx.funcion);
+				((SentContext)_localctx).miif = miif(_localctx.bloque, _localctx.funcion, getCount());
 				((SentContext)_localctx).text =  ((SentContext)_localctx).miif.text;
 				}
 				break;
@@ -1677,7 +1690,7 @@ public class PracticaParser extends Parser {
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(242);
-				((SentContext)_localctx).miwhile = miwhile(_localctx.bloque, _localctx.funcion);
+				((SentContext)_localctx).miwhile = miwhile(_localctx.bloque, _localctx.funcion, getCount());
 				((SentContext)_localctx).text = ((SentContext)_localctx).miwhile.text;
 				}
 				break;
@@ -1685,7 +1698,7 @@ public class PracticaParser extends Parser {
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(245);
-				((SentContext)_localctx).mifor = mifor(_localctx.bloque, _localctx.funcion);
+				((SentContext)_localctx).mifor = mifor(_localctx.bloque, _localctx.funcion, getCount());
 				((SentContext)_localctx).text = ((SentContext)_localctx).mifor.text;
 				}
 				break;
@@ -1693,7 +1706,7 @@ public class PracticaParser extends Parser {
 				enterOuterAlt(_localctx, 7);
 				{
 				setState(248);
-				((SentContext)_localctx).midowhile = midowhile(_localctx.bloque, _localctx.funcion);
+				((SentContext)_localctx).midowhile = midowhile(_localctx.bloque, _localctx.funcion, getCount());
 				((SentContext)_localctx).text = ((SentContext)_localctx).midowhile.text;
 				}
 				break;
@@ -2546,6 +2559,7 @@ public class PracticaParser extends Parser {
 	public static class MiifContext extends ParserRuleContext {
 		public String bloque;
 		public String funcion;
+		public String cont;
 		public String text;
 		public Token IF;
 		public ExpcondContext expcond;
@@ -2566,10 +2580,11 @@ public class PracticaParser extends Parser {
 			return getRuleContext(MielseContext.class,0);
 		}
 		public MiifContext(ParserRuleContext parent, int invokingState) { super(parent, invokingState); }
-		public MiifContext(ParserRuleContext parent, int invokingState, String bloque, String funcion) {
+		public MiifContext(ParserRuleContext parent, int invokingState, String bloque, String funcion, String cont) {
 			super(parent, invokingState);
 			this.bloque = bloque;
 			this.funcion = funcion;
+			this.cont = cont;
 		}
 		@Override public int getRuleIndex() { return RULE_miif; }
 		@Override
@@ -2587,8 +2602,8 @@ public class PracticaParser extends Parser {
 		}
 	}
 
-	public final MiifContext miif(String bloque,String funcion) throws RecognitionException {
-		MiifContext _localctx = new MiifContext(_ctx, getState(), bloque, funcion);
+	public final MiifContext miif(String bloque,String funcion,String cont) throws RecognitionException {
+		MiifContext _localctx = new MiifContext(_ctx, getState(), bloque, funcion, cont);
 		enterRule(_localctx, 64, RULE_miif);
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -2600,12 +2615,12 @@ public class PracticaParser extends Parser {
 			setState(343);
 			((MiifContext)_localctx).LBRACE = match(LBRACE);
 			setState(344);
-			((MiifContext)_localctx).code = code(_localctx.bloque, _localctx.funcion);
+			((MiifContext)_localctx).code = code(_localctx.bloque, _localctx.funcion+":if"+cont);
 			setState(345);
 			((MiifContext)_localctx).RBRACE = match(RBRACE);
 			setState(346);
-			((MiifContext)_localctx).mielse = mielse(_localctx.bloque, _localctx.funcion);
-			((MiifContext)_localctx).text = "<SPAN CLASS=\"palres\">" + (((MiifContext)_localctx).IF!=null?((MiifContext)_localctx).IF.getText():null) + "</SPAN> " + ((MiifContext)_localctx).expcond.text +
+			((MiifContext)_localctx).mielse = mielse(_localctx.bloque, _localctx.funcion, getCount());
+			((MiifContext)_localctx).text = "<A NAME=\""+ _localctx.bloque+ ":" + _localctx.funcion +":if" + cont + "\"><SPAN CLASS=\"palres\">" + (((MiifContext)_localctx).IF!=null?((MiifContext)_localctx).IF.getText():null) + "</SPAN></A> " + ((MiifContext)_localctx).expcond.text +
 			"\n" + "<br/>" + (((MiifContext)_localctx).LBRACE!=null?((MiifContext)_localctx).LBRACE.getText():null) +  "\n" + ((MiifContext)_localctx).code.text + (((MiifContext)_localctx).RBRACE!=null?((MiifContext)_localctx).RBRACE.getText():null) + "\n" + "<br/>\n"  + "\n" + ((MiifContext)_localctx).mielse.text;
 					
 			}
@@ -2625,6 +2640,7 @@ public class PracticaParser extends Parser {
 	public static class MielseContext extends ParserRuleContext {
 		public String bloque;
 		public String funcion;
+		public String cont;
 		public String text;
 		public Token ELSE;
 		public Else1Context else1;
@@ -2633,10 +2649,11 @@ public class PracticaParser extends Parser {
 			return getRuleContext(Else1Context.class,0);
 		}
 		public MielseContext(ParserRuleContext parent, int invokingState) { super(parent, invokingState); }
-		public MielseContext(ParserRuleContext parent, int invokingState, String bloque, String funcion) {
+		public MielseContext(ParserRuleContext parent, int invokingState, String bloque, String funcion, String cont) {
 			super(parent, invokingState);
 			this.bloque = bloque;
 			this.funcion = funcion;
+			this.cont = cont;
 		}
 		@Override public int getRuleIndex() { return RULE_mielse; }
 		@Override
@@ -2654,8 +2671,8 @@ public class PracticaParser extends Parser {
 		}
 	}
 
-	public final MielseContext mielse(String bloque,String funcion) throws RecognitionException {
-		MielseContext _localctx = new MielseContext(_ctx, getState(), bloque, funcion);
+	public final MielseContext mielse(String bloque,String funcion,String cont) throws RecognitionException {
+		MielseContext _localctx = new MielseContext(_ctx, getState(), bloque, funcion, cont);
 		enterRule(_localctx, 66, RULE_mielse);
 		try {
 			setState(354);
@@ -2667,7 +2684,7 @@ public class PracticaParser extends Parser {
 				setState(349);
 				((MielseContext)_localctx).ELSE = match(ELSE);
 				setState(350);
-				((MielseContext)_localctx).else1 = else1(_localctx.bloque, _localctx.funcion);
+				((MielseContext)_localctx).else1 = else1(_localctx.bloque, _localctx.funcion, cont);
 				((MielseContext)_localctx).text =   "<SPAN CLASS=\"palres\">" + (((MielseContext)_localctx).ELSE!=null?((MielseContext)_localctx).ELSE.getText():null) + "</SPAN> " + ((MielseContext)_localctx).else1.text + "\n";
 						
 				}
@@ -2709,6 +2726,7 @@ public class PracticaParser extends Parser {
 	public static class Else1Context extends ParserRuleContext {
 		public String bloque;
 		public String funcion;
+		public String cont;
 		public String text;
 		public Token LBRACE;
 		public CodeContext code;
@@ -2723,10 +2741,11 @@ public class PracticaParser extends Parser {
 			return getRuleContext(MiifContext.class,0);
 		}
 		public Else1Context(ParserRuleContext parent, int invokingState) { super(parent, invokingState); }
-		public Else1Context(ParserRuleContext parent, int invokingState, String bloque, String funcion) {
+		public Else1Context(ParserRuleContext parent, int invokingState, String bloque, String funcion, String cont) {
 			super(parent, invokingState);
 			this.bloque = bloque;
 			this.funcion = funcion;
+			this.cont = cont;
 		}
 		@Override public int getRuleIndex() { return RULE_else1; }
 		@Override
@@ -2744,8 +2763,8 @@ public class PracticaParser extends Parser {
 		}
 	}
 
-	public final Else1Context else1(String bloque,String funcion) throws RecognitionException {
-		Else1Context _localctx = new Else1Context(_ctx, getState(), bloque, funcion);
+	public final Else1Context else1(String bloque,String funcion,String cont) throws RecognitionException {
+		Else1Context _localctx = new Else1Context(_ctx, getState(), bloque, funcion, cont);
 		enterRule(_localctx, 68, RULE_else1);
 		try {
 			setState(364);
@@ -2757,10 +2776,10 @@ public class PracticaParser extends Parser {
 				setState(356);
 				((Else1Context)_localctx).LBRACE = match(LBRACE);
 				setState(357);
-				((Else1Context)_localctx).code = code(_localctx.bloque, _localctx.funcion);
+				((Else1Context)_localctx).code = code(_localctx.bloque, _localctx.funcion+":else"+cont);
 				setState(358);
 				((Else1Context)_localctx).RBRACE = match(RBRACE);
-				((Else1Context)_localctx).text =  "<br/>" + (((Else1Context)_localctx).LBRACE!=null?((Else1Context)_localctx).LBRACE.getText():null) + ((Else1Context)_localctx).code.text + (((Else1Context)_localctx).RBRACE!=null?((Else1Context)_localctx).RBRACE.getText():null) + "\n" + "<br/>\n"  + "\n";
+				((Else1Context)_localctx).text = "<A NAME=\""+ _localctx.bloque+ ":" + _localctx.funcion +":else" + cont + "\"></A><br/>" + (((Else1Context)_localctx).LBRACE!=null?((Else1Context)_localctx).LBRACE.getText():null) + ((Else1Context)_localctx).code.text + (((Else1Context)_localctx).RBRACE!=null?((Else1Context)_localctx).RBRACE.getText():null) + "\n" + "<br/>\n"  + "\n";
 						
 				}
 				break;
@@ -2768,7 +2787,7 @@ public class PracticaParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(361);
-				((Else1Context)_localctx).miif = miif(_localctx.bloque, _localctx.funcion);
+				((Else1Context)_localctx).miif = miif(_localctx.bloque, _localctx.funcion, cont);
 				((Else1Context)_localctx).text =  ((Else1Context)_localctx).miif.text ;
 				}
 				break;
@@ -2791,6 +2810,7 @@ public class PracticaParser extends Parser {
 	public static class MiwhileContext extends ParserRuleContext {
 		public String bloque;
 		public String funcion;
+		public String cont;
 		public String text;
 		public Token WHILE;
 		public ExpcondContext expcond;
@@ -2807,10 +2827,11 @@ public class PracticaParser extends Parser {
 		}
 		public TerminalNode RBRACE() { return getToken(PracticaParser.RBRACE, 0); }
 		public MiwhileContext(ParserRuleContext parent, int invokingState) { super(parent, invokingState); }
-		public MiwhileContext(ParserRuleContext parent, int invokingState, String bloque, String funcion) {
+		public MiwhileContext(ParserRuleContext parent, int invokingState, String bloque, String funcion, String cont) {
 			super(parent, invokingState);
 			this.bloque = bloque;
 			this.funcion = funcion;
+			this.cont = cont;
 		}
 		@Override public int getRuleIndex() { return RULE_miwhile; }
 		@Override
@@ -2828,8 +2849,8 @@ public class PracticaParser extends Parser {
 		}
 	}
 
-	public final MiwhileContext miwhile(String bloque,String funcion) throws RecognitionException {
-		MiwhileContext _localctx = new MiwhileContext(_ctx, getState(), bloque, funcion);
+	public final MiwhileContext miwhile(String bloque,String funcion,String cont) throws RecognitionException {
+		MiwhileContext _localctx = new MiwhileContext(_ctx, getState(), bloque, funcion, cont);
 		enterRule(_localctx, 70, RULE_miwhile);
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -2841,10 +2862,10 @@ public class PracticaParser extends Parser {
 			setState(368);
 			((MiwhileContext)_localctx).LBRACE = match(LBRACE);
 			setState(369);
-			((MiwhileContext)_localctx).code = code(_localctx.bloque, _localctx.funcion);
+			((MiwhileContext)_localctx).code = code(_localctx.bloque, _localctx.funcion+":while"+cont);
 			setState(370);
 			((MiwhileContext)_localctx).RBRACE = match(RBRACE);
-			((MiwhileContext)_localctx).text = "<SPAN CLASS=\"palres\">" + (((MiwhileContext)_localctx).WHILE!=null?((MiwhileContext)_localctx).WHILE.getText():null) + "</SPAN> " + ((MiwhileContext)_localctx).expcond.text +
+			((MiwhileContext)_localctx).text = "<A NAME=\""+ _localctx.bloque+ ":" + _localctx.funcion +":while" + cont + "\"><SPAN CLASS=\"palres\">" + (((MiwhileContext)_localctx).WHILE!=null?((MiwhileContext)_localctx).WHILE.getText():null) + "</SPAN></A>" + ((MiwhileContext)_localctx).expcond.text +
 			                                     "\n" + "<br/>" + (((MiwhileContext)_localctx).LBRACE!=null?((MiwhileContext)_localctx).LBRACE.getText():null) +  "\n" + ((MiwhileContext)_localctx).code.text + (((MiwhileContext)_localctx).RBRACE!=null?((MiwhileContext)_localctx).RBRACE.getText():null) + "\n" + "<br/>\n"  + "\n";
 					
 			}
@@ -2864,6 +2885,7 @@ public class PracticaParser extends Parser {
 	public static class MidowhileContext extends ParserRuleContext {
 		public String bloque;
 		public String funcion;
+		public String cont;
 		public String text;
 		public Token DO;
 		public Token LBRACE;
@@ -2884,10 +2906,11 @@ public class PracticaParser extends Parser {
 		}
 		public TerminalNode SEMICOLON() { return getToken(PracticaParser.SEMICOLON, 0); }
 		public MidowhileContext(ParserRuleContext parent, int invokingState) { super(parent, invokingState); }
-		public MidowhileContext(ParserRuleContext parent, int invokingState, String bloque, String funcion) {
+		public MidowhileContext(ParserRuleContext parent, int invokingState, String bloque, String funcion, String cont) {
 			super(parent, invokingState);
 			this.bloque = bloque;
 			this.funcion = funcion;
+			this.cont = cont;
 		}
 		@Override public int getRuleIndex() { return RULE_midowhile; }
 		@Override
@@ -2905,8 +2928,8 @@ public class PracticaParser extends Parser {
 		}
 	}
 
-	public final MidowhileContext midowhile(String bloque,String funcion) throws RecognitionException {
-		MidowhileContext _localctx = new MidowhileContext(_ctx, getState(), bloque, funcion);
+	public final MidowhileContext midowhile(String bloque,String funcion,String cont) throws RecognitionException {
+		MidowhileContext _localctx = new MidowhileContext(_ctx, getState(), bloque, funcion, cont);
 		enterRule(_localctx, 72, RULE_midowhile);
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -2916,7 +2939,7 @@ public class PracticaParser extends Parser {
 			setState(374);
 			((MidowhileContext)_localctx).LBRACE = match(LBRACE);
 			setState(375);
-			((MidowhileContext)_localctx).code = code(_localctx.bloque, _localctx.funcion);
+			((MidowhileContext)_localctx).code = code(_localctx.bloque, _localctx.funcion+":dowhile"+cont);
 			setState(376);
 			((MidowhileContext)_localctx).RBRACE = match(RBRACE);
 			setState(377);
@@ -2925,7 +2948,7 @@ public class PracticaParser extends Parser {
 			((MidowhileContext)_localctx).expcond = expcond(_localctx.funcion);
 			setState(379);
 			((MidowhileContext)_localctx).SEMICOLON = match(SEMICOLON);
-			((MidowhileContext)_localctx).text =  _localctx.text ="<SPAN CLASS=\"palres\">" + (((MidowhileContext)_localctx).DO!=null?((MidowhileContext)_localctx).DO.getText():null) + "</SPAN>" + "\n" + "<br/>" + (((MidowhileContext)_localctx).LBRACE!=null?((MidowhileContext)_localctx).LBRACE.getText():null) +  "\n" + ((MidowhileContext)_localctx).code.text + (((MidowhileContext)_localctx).RBRACE!=null?((MidowhileContext)_localctx).RBRACE.getText():null) + "\n" + "<SPAN CLASS=\"palres\">" + (((MidowhileContext)_localctx).WHILE!=null?((MidowhileContext)_localctx).WHILE.getText():null) + "</SPAN> " + ((MidowhileContext)_localctx).expcond.text + (((MidowhileContext)_localctx).SEMICOLON!=null?((MidowhileContext)_localctx).SEMICOLON.getText():null);
+			((MidowhileContext)_localctx).text =  _localctx.text ="<A NAME=\""+ _localctx.bloque+ ":" + _localctx.funcion +":dowhile" + cont + "\"><SPAN CLASS=\"palres\">" + (((MidowhileContext)_localctx).DO!=null?((MidowhileContext)_localctx).DO.getText():null) + "</SPAN></A>" + "\n" + "<br/>" + (((MidowhileContext)_localctx).LBRACE!=null?((MidowhileContext)_localctx).LBRACE.getText():null) +  "\n" + ((MidowhileContext)_localctx).code.text + (((MidowhileContext)_localctx).RBRACE!=null?((MidowhileContext)_localctx).RBRACE.getText():null) + "\n" + "<SPAN CLASS=\"palres\">" + (((MidowhileContext)_localctx).WHILE!=null?((MidowhileContext)_localctx).WHILE.getText():null) + "</SPAN>" + ((MidowhileContext)_localctx).expcond.text + (((MidowhileContext)_localctx).SEMICOLON!=null?((MidowhileContext)_localctx).SEMICOLON.getText():null);
 					
 			}
 		}
@@ -2944,6 +2967,7 @@ public class PracticaParser extends Parser {
 	public static class MiforContext extends ParserRuleContext {
 		public String bloque;
 		public String funcion;
+		public String cont;
 		public String text;
 		public Token FOR;
 		public Token LPARENTHESIS;
@@ -2954,10 +2978,11 @@ public class PracticaParser extends Parser {
 			return getRuleContext(For1Context.class,0);
 		}
 		public MiforContext(ParserRuleContext parent, int invokingState) { super(parent, invokingState); }
-		public MiforContext(ParserRuleContext parent, int invokingState, String bloque, String funcion) {
+		public MiforContext(ParserRuleContext parent, int invokingState, String bloque, String funcion, String cont) {
 			super(parent, invokingState);
 			this.bloque = bloque;
 			this.funcion = funcion;
+			this.cont = cont;
 		}
 		@Override public int getRuleIndex() { return RULE_mifor; }
 		@Override
@@ -2975,8 +3000,8 @@ public class PracticaParser extends Parser {
 		}
 	}
 
-	public final MiforContext mifor(String bloque,String funcion) throws RecognitionException {
-		MiforContext _localctx = new MiforContext(_ctx, getState(), bloque, funcion);
+	public final MiforContext mifor(String bloque,String funcion,String cont) throws RecognitionException {
+		MiforContext _localctx = new MiforContext(_ctx, getState(), bloque, funcion, cont);
 		enterRule(_localctx, 74, RULE_mifor);
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -2986,8 +3011,8 @@ public class PracticaParser extends Parser {
 			setState(383);
 			((MiforContext)_localctx).LPARENTHESIS = match(LPARENTHESIS);
 			setState(384);
-			((MiforContext)_localctx).for1 = for1(_localctx.bloque, _localctx.funcion);
-			((MiforContext)_localctx).text =  _localctx.text ="<SPAN CLASS=\"palres\">" + (((MiforContext)_localctx).FOR!=null?((MiforContext)_localctx).FOR.getText():null) + "</SPAN>" + (((MiforContext)_localctx).LPARENTHESIS!=null?((MiforContext)_localctx).LPARENTHESIS.getText():null) + ((MiforContext)_localctx).for1.text;
+			((MiforContext)_localctx).for1 = for1(_localctx.bloque, _localctx.funcion+":for"+cont);
+			((MiforContext)_localctx).text =  _localctx.text ="<A NAME=\""+ _localctx.bloque+ ":" + _localctx.funcion +":for" + cont + "\"><SPAN CLASS=\"palres\">" + (((MiforContext)_localctx).FOR!=null?((MiforContext)_localctx).FOR.getText():null) + "</SPAN></A>" + (((MiforContext)_localctx).LPARENTHESIS!=null?((MiforContext)_localctx).LPARENTHESIS.getText():null) + ((MiforContext)_localctx).for1.text;
 					
 			}
 		}

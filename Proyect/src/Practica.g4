@@ -3,13 +3,12 @@ grammar Practica;
     import java.util.*;
 }
 
-@lexer::header {
-    import java.util.*;
-}
 
-@members {
+@parser::members {
 
     HashMap<String, String> tablaSimbolos = new HashMap<>();
+    HashMap<String, Integer> contados = new HashMap<>();
+    int count = 0;
 
        public String addSimbolo(String bloque, String funcion, String nombre){
            if (!bloque.equals("no")){
@@ -23,16 +22,27 @@ grammar Practica;
            return "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN>";
        }
 
-   public String getSimbolo(String funcion, String nombre){
+    public String getSimbolo(String funcion, String nombre){
         if (tablaSimbolos.containsKey(funcion+":"+nombre)){
             return "<A HREF=\"#" + tablaSimbolos.get(funcion+":"+nombre) + "\">" + "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN></A>";
         }else if (tablaSimbolos.containsKey(nombre)){
             return "<A HREF=\"#" + tablaSimbolos.get(nombre) + "\">" + "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN></A>";
         }else{
-            return "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN>";
+            if (funcion.lastIndexOf(":") == -1){
+                return "<SPAN CLASS=\"ident\"/>" + nombre + "</SPAN>";
+            }
+            else{
+                return getSimbolo(funcion.substring(0, funcion.lastIndexOf(":")), nombre);
+            }
         }
-
     }
+
+    public String getCount(){
+    count++;
+    return Integer.toString(count);
+    }
+
+
 }
 
 program:
@@ -145,10 +155,10 @@ sent[String bloque, String funcion]
 	IDENTIFIER aux[$funcion] SEMICOLON {$text = getSimbolo($funcion, $IDENTIFIER.text) + $aux.text + $SEMICOLON.text;}
 	| CONST_DEF_IDENTIFIER subpparamlist[$funcion] SEMICOLON {$text= getSimbolo($funcion, $CONST_DEF_IDENTIFIER.text) + $subpparamlist.text;}
 	| vardef[$bloque, $funcion] SEMICOLON {$text= $vardef.text + $SEMICOLON.text;}
-	| miif[$bloque, $funcion] {$text= $miif.text;}
-	| miwhile[$bloque, $funcion] {$text=$miwhile.text;}
-	| mifor[$bloque, $funcion] {$text=$mifor.text;}
-	| midowhile[$bloque, $funcion] {$text=$midowhile.text;}
+	| miif[$bloque, $funcion, getCount()] {$text= $miif.text;}
+	| miwhile[$bloque, $funcion, getCount()] {$text=$miwhile.text;}
+	| mifor[$bloque, $funcion, getCount()] {$text=$mifor.text;}
+	| midowhile[$bloque, $funcion, getCount()] {$text=$midowhile.text;}
 	| mireturn[$funcion] SEMICOLON {$text= $mireturn.text + $SEMICOLON.text;};
 
 aux[String funcion]
@@ -203,33 +213,33 @@ explist1[String funcion]
 	COMMA explist[$funcion] {$text = $COMMA.text + " " + $explist.text;}
 	| {$text="";};
 
-miif[String bloque, String funcion]
+miif[String bloque, String funcion, String cont]
 	returns[String text]:
-	IF expcond[$funcion] LBRACE code[$bloque, $funcion] RBRACE mielse[$bloque, $funcion] {$text ="<SPAN CLASS=\"palres\">" + $IF.text + "</SPAN> " + $expcond.text +
+	IF expcond[$funcion] LBRACE code[$bloque, $funcion+":if"+cont] RBRACE mielse[$bloque, $funcion, getCount()] {$text ="<A NAME=\""+ $bloque+ ":" + $funcion +":if" + cont + "\"><SPAN CLASS=\"palres\">" + $IF.text + "</SPAN></A> " + $expcond.text +
 "\n" + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text + "\n" + "<br/>\n"  + "\n" + $mielse.text;
 		};
-mielse[String bloque, String funcion]
+mielse[String bloque, String funcion, String cont]
 	returns[String text]:
-	ELSE else1[$bloque, $funcion] {$text=  "<SPAN CLASS=\"palres\">" + $ELSE.text + "</SPAN> " + $else1.text + "\n";
+	ELSE else1[$bloque, $funcion, cont] {$text=  "<SPAN CLASS=\"palres\">" + $ELSE.text + "</SPAN> " + $else1.text + "\n";
 		}
 	| {$text = "";};
-else1[String bloque, String funcion]
+else1[String bloque, String funcion, String cont]
 	returns[String text]:
-	LBRACE code[$bloque, $funcion] RBRACE {$text = "<br/>" + $LBRACE.text + $code.text + $RBRACE.text + "\n" + "<br/>\n"  + "\n";
+	LBRACE code[$bloque, $funcion+":else"+cont] RBRACE {$text ="<A NAME=\""+ $bloque+ ":" + $funcion +":else" + cont + "\"></A><br/>" + $LBRACE.text + $code.text + $RBRACE.text + "\n" + "<br/>\n"  + "\n";
 		}
-	| miif[$bloque, $funcion] {$text = $miif.text ;};
-miwhile[String bloque, String funcion]
+	| miif[$bloque, $funcion, cont] {$text = $miif.text ;};
+miwhile[String bloque, String funcion, String cont]
 	returns[String text]:
-	WHILE expcond[$funcion] LBRACE code[$bloque, $funcion] RBRACE {$text ="<SPAN CLASS=\"palres\">" + $WHILE.text + "</SPAN> " + $expcond.text +
+	WHILE expcond[$funcion] LBRACE code[$bloque, $funcion+":while"+cont] RBRACE {$text ="<A NAME=\""+ $bloque+ ":" + $funcion +":while" + cont + "\"><SPAN CLASS=\"palres\">" + $WHILE.text + "</SPAN></A>" + $expcond.text +
                                      "\n" + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text + "\n" + "<br/>\n"  + "\n";
 		};
-midowhile[String bloque, String funcion]
+midowhile[String bloque, String funcion, String cont]
 	returns[String text]:
-	DO LBRACE code[$bloque, $funcion] RBRACE WHILE expcond[$funcion] SEMICOLON {$text = $text ="<SPAN CLASS=\"palres\">" + $DO.text + "</SPAN>" + "\n" + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text + "\n" + "<SPAN CLASS=\"palres\">" + $WHILE.text + "</SPAN> " + $expcond.text + $SEMICOLON.text;
+	DO LBRACE code[$bloque, $funcion+":dowhile"+cont] RBRACE WHILE expcond[$funcion] SEMICOLON {$text = $text ="<A NAME=\""+ $bloque+ ":" + $funcion +":dowhile" + cont + "\"><SPAN CLASS=\"palres\">" + $DO.text + "</SPAN></A>" + "\n" + "<br/>" + $LBRACE.text +  "\n" + $code.text + $RBRACE.text + "\n" + "<SPAN CLASS=\"palres\">" + $WHILE.text + "</SPAN>" + $expcond.text + $SEMICOLON.text;
 		};
-mifor[String bloque, String funcion]
+mifor[String bloque, String funcion, String cont]
 	returns[String text]:
-	FOR LPARENTHESIS for1[$bloque, $funcion] {$text = $text ="<SPAN CLASS=\"palres\">" + $FOR.text + "</SPAN>" + $LPARENTHESIS.text + $for1.text;
+	FOR LPARENTHESIS for1[$bloque, $funcion+":for"+cont] {$text = $text ="<A NAME=\""+ $bloque+ ":" + $funcion +":for" + cont + "\"><SPAN CLASS=\"palres\">" + $FOR.text + "</SPAN></A>" + $LPARENTHESIS.text + $for1.text;
 		};
 for1[String bloque, String funcion]
 	returns[String text]:
